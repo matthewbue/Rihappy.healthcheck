@@ -1,0 +1,12 @@
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\bin\Debug\net8.0\Rihappy.HealthCheck.Domain.deps.json
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\bin\Debug\net8.0\Rihappy.HealthCheck.Domain.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\bin\Debug\net8.0\Rihappy.HealthCheck.Domain.pdb
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\Rihappy.HealthCheck.Domain.csproj.AssemblyReference.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\Rihappy.HealthCheck.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\Rihappy.HealthCheck.Domain.AssemblyInfoInputs.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\Rihappy.HealthCheck.Domain.AssemblyInfo.cs
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\Rihappy.HealthCheck.Domain.csproj.CoreCompileInputs.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\Rihappy.HealthCheck.Domain.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\refint\Rihappy.HealthCheck.Domain.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\Rihappy.HealthCheck.Domain.pdb
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Domain\obj\Debug\net8.0\ref\Rihappy.HealthCheck.Domain.dll

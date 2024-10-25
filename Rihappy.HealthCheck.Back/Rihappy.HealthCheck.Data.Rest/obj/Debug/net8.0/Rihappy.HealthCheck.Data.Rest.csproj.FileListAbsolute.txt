@@ -1,0 +1,15 @@
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\bin\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.deps.json
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\bin\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\bin\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.pdb
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\bin\Debug\net8.0\Rihappy.HealthCheck.Domain.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\bin\Debug\net8.0\Rihappy.HealthCheck.Domain.pdb
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.csproj.AssemblyReference.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.AssemblyInfoInputs.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.AssemblyInfo.cs
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.csproj.CoreCompileInputs.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\Rihappy..5AC6F49D.Up2Date
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\refint\Rihappy.HealthCheck.Data.Rest.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\Rihappy.HealthCheck.Data.Rest.pdb
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Data.Rest\obj\Debug\net8.0\ref\Rihappy.HealthCheck.Data.Rest.dll

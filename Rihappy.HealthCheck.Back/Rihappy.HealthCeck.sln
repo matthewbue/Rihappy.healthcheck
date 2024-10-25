@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rihappy.HealthCeck.API", "Rihappy.HealthCeck.API\Rihappy.HealthCeck.API.csproj", "{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rihappy.HealthCheck.Application", "Rihappy.HealthCheck.Application\Rihappy.HealthCheck.Application.csproj", "{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rihappy.HealthCheck.Domain", "Rihappy.HealthCheck.Domain\Rihappy.HealthCheck.Domain.csproj", "{96D44850-4935-476E-A553-8C06F35181F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rihappy.HealthCheck.Data.Rest", "Rihappy.HealthCheck.Data.Rest\Rihappy.HealthCheck.Data.Rest.csproj", "{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rihappy.HealthCheck.IoC", "Rihappy.HealthCheck.IoC\Rihappy.HealthCheck.IoC.csproj", "{8145240E-701B-4CF2-9D6E-1F2148563287}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D44850-4935-476E-A553-8C06F35181F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D44850-4935-476E-A553-8C06F35181F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D44850-4935-476E-A553-8C06F35181F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D44850-4935-476E-A553-8C06F35181F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8145240E-701B-4CF2-9D6E-1F2148563287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8145240E-701B-4CF2-9D6E-1F2148563287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8145240E-701B-4CF2-9D6E-1F2148563287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8145240E-701B-4CF2-9D6E-1F2148563287}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {002FB595-5F30-4B13-99E3-7E25FFEDB58B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,15 @@
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\bin\Debug\net8.0\Rihappy.HealthCheck.Application.deps.json
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\bin\Debug\net8.0\Rihappy.HealthCheck.Application.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\bin\Debug\net8.0\Rihappy.HealthCheck.Application.pdb
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\bin\Debug\net8.0\Rihappy.HealthCheck.Domain.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\bin\Debug\net8.0\Rihappy.HealthCheck.Domain.pdb
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\Rihappy.HealthCheck.Application.csproj.AssemblyReference.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\Rihappy.HealthCheck.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\Rihappy.HealthCheck.Application.AssemblyInfoInputs.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\Rihappy.HealthCheck.Application.AssemblyInfo.cs
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\Rihappy.HealthCheck.Application.csproj.CoreCompileInputs.cache
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\Rihappy..91D48858.Up2Date
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\Rihappy.HealthCheck.Application.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\refint\Rihappy.HealthCheck.Application.dll
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\Rihappy.HealthCheck.Application.pdb
+C:\Users\MB TECH\source\repos\Rihappy.HealthCeck\Rihappy.HealthCheck.Application\obj\Debug\net8.0\ref\Rihappy.HealthCheck.Application.dll
