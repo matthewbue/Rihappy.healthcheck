@@ -1,0 +1,41 @@
+<div class="status-container">
+    <div class="platform-status">
+      <div class="status-background">
+        <h1>Sistema em Pleno Funcionamento</h1>
+        <p>Todos os componentes estão operando dentro dos parâmetros esperados.</p>
+      </div>
+    </div>
+  
+    <div class="section-wrapper">
+      <h2><i class="fas fa-cogs"></i> Componentes do Sistema</h2>
+      <div class="components-list">
+        <div *ngFor="let component of components" class="card">
+          <div class="card-header">
+            <h3>{{ component.name }}</h3>
+            <span class="status-led" [ngClass]="{'led-green': component.status === 'Operational', 'led-red': component.status !== 'Operational'}"></span>
+          </div>
+          <p><i class="fas fa-circle-notch"></i> Status: {{ component.status }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="section-wrapper">
+      <h2><i class="fas fa-exclamation-triangle"></i> Incidentes em Andamento</h2>
+      <div *ngIf="ongoingIncidents.length > 0; else noIncidents">
+        <div class="components-list">
+          <div *ngFor="let incident of ongoingIncidents" class="card">
+            <div class="card-header">
+              <h3>{{ incident.name }}</h3>
+              <span class="status-led" [ngClass]="{'led-green': incident.status === 'Operational', 'led-red': incident.status !== 'Operational'}"></span>
+            </div>
+            <p><i class="fas fa-exclamation-circle"></i> Status: {{ incident.status }}</p>
+            <p><i class="fas fa-clock"></i> Última Atualização: {{ incident.lastUpdate }}</p>
+          </div>
+        </div>
+      </div>
+      <ng-template #noIncidents>
+        <p class="no-incidents"><i class="fas fa-check-circle"></i> Não há incidentes em andamento no momento.</p>
+      </ng-template>
+    </div>
+  </div>
+  

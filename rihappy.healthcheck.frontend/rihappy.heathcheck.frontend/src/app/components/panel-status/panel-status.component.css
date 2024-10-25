@@ -1,0 +1,142 @@
+/* Container principal que engloba o conteúdo e o menu */
+.app-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh; /* Garante que ocupe a altura total da janela */
+    overflow-x: hidden; /* Evita a rolagem horizontal */
+}
+
+/* Menu lateral */
+app-menu {
+    width: 250px; /* Largura do menu quando não colapsado */
+    transition: width 0.3s ease; /* Animação suave ao colapsar o menu */
+}
+
+/* Conteúdo principal */
+.content {
+    flex-grow: 1; /* O conteúdo ocupa o espaço restante */
+    transition: margin-left 0.3s ease; /* Animação suave ao mover o conteúdo */
+    padding: 20px; /* Espaçamento ao redor do conteúdo */
+}
+
+/* Classe aplicada quando o menu está colapsado */
+.content.collapsed {
+    margin-left: 80px; /* Ajusta a margem esquerda quando o menu está colapsado */
+}
+
+/* Menu colapsado */
+app-menu.collapsed {
+    width: 80px; /* Largura do menu colapsado */
+}
+
+/* Container de status */
+.status-container {
+    max-width: 100%;
+    padding: 50px;
+    background-color: #f0f0f0; /* Fundo cinza claro */
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto;
+    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura total da tela */
+}
+
+/* Fundo do status */
+.status-background {
+    background: linear-gradient(135deg, #28a745, #6ddf6d); /* Verde para sinalizar funcionamento */
+    padding: 40px;
+    border-radius: 20px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
+    transition: margin-left 0.3s ease; /* Animação para mover o conteúdo suavemente */
+}
+
+/* Lista de componentes */
+.components-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px; /* Adiciona um espaçamento nas bordas */
+}
+
+/* Cartões dos componentes */
+.card {
+    background: linear-gradient(145deg, #f3f6fa, #ffffff);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: left;
+    width: 100%;
+    max-width: 280px;
+    border-left: 5px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-left: 5px solid #f86001;
+    transition: all 0.3s ease;
+}
+
+/* Status LED */
+.status-led {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0.3;
+    }
+}
+
+.led-green {
+    background-color: #28a745;
+}
+
+.led-red {
+    background-color: #dc3545;
+}
+
+/* Incidentes sem ocorrências */
+.no-incidents {
+    font-size: 18px;
+    color: #6c757d;
+    padding: 25px;
+    background-color: #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.no-incidents i {
+    color: #28a745;
+}
+
+.card p i {
+    margin-right: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .platform-status h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .components-list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}

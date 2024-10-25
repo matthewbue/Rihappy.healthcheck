@@ -1,0 +1,9 @@
+<div class="app-container">
+  <!-- Passa a função para o evento de colapso -->
+  <app-menu [class.collapsed]="IsMenuCollapsed" (toggleCollapse)="onMenuToggle($event)"></app-menu>
+
+  <!-- Usa o estado isMenuCollapsed para adicionar/remover a classe collapsed no conteúdo -->
+  <div class="content" [class.collapsed]="IsMenuCollapsed">
+    <app-status></app-status>
+  </div>
+</div>
