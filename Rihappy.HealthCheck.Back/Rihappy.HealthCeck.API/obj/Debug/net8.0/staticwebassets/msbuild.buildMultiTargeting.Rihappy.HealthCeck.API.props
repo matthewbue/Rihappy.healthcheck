@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Rihappy.HealthCeck.API.props" />
-</Project>
