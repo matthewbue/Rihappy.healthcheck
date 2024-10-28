@@ -20,6 +20,8 @@
     height: 100vh; /* Ocupa toda a altura da página */
     transition: transform 0.3s ease, width 0.3s ease; /* Suaviza a transição do colapso do menu */
     z-index: 100; /* Garante que o menu fique acima do conteúdo */
+    border-right: 1px solid #ddd; /* Borda sutil à direita */
+
 }
 
 /* Colapso do menu */
@@ -100,4 +102,9 @@
 
 .content.collapsed {
     margin-left: 80px; /* Quando o menu está colapsado */
+}
+
+.sidebar ul li:not(:last-child) {
+    border-bottom: 3px solid #ececec; /* Linha separadora sutil */
+    padding-bottom: 10px;
 }

@@ -1,0 +1,18 @@
+<div class="modal-backdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>{{ groupName }}</h2>
+        <button class="close-button" (click)="closeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let component of components" class="component">
+          <h3>{{ component.name }}
+            <span class="status-led" [ngClass]="{'led-green': component.status === 'Operational', 'led-red': component.status !== 'Operational'}"></span>
+          </h3>
+          <p class="component-description">{{ component.description }}</p>
+          <p class="component-status"><strong>Status:</strong> <span>{{ component.status }}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

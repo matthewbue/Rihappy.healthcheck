@@ -1,0 +1,162 @@
+/* Fundo escuro da modal */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com opacidade */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Estilo principal da modal */
+  .modal {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modal-fade-in 0.4s ease;
+    max-height: 80vh; /* Altura máxima para manter responsivo */
+    overflow-y: auto; /* Scroll caso necessário */
+  }
+  
+  /* Cabeçalho da modal */
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo do título */
+  .modal-header h2 {
+    margin: 0;
+    color: #007bff; /* Cor azul moderna */
+    font-size: 22px;
+  }
+  
+  /* Botão de fechar */
+  .close-button {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: #007bff;
+  }
+  
+  /* Corpo da modal */
+  .modal-body {
+    padding-right: 10px;
+  }
+  
+  /* Estilo de cada componente no modal */
+  .component {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Ao passar o mouse, destaque o cartão do componente */
+  .component:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo do título do componente */
+  .component h3 {
+    margin: 0 0 5px;
+    font-size: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Descrição do componente */
+  .component-description {
+    margin: 5px 0 10px;
+    color: #666;
+    font-size: 16px;
+  }
+  
+  /* Status do componente */
+  .component-status {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* LED de status */
+  .status-led {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  
+  /* LED verde com animação de pulsação */
+  .led-green {
+    background-color: #28a745;
+    animation: led-pulse 1.5s infinite alternate;
+  }
+  
+  /* LED vermelho */
+  .led-red {
+    background-color: #dc3545;
+  }
+  
+  /* Animação de piscar o LED */
+  @keyframes led-pulse {
+    0% {
+      box-shadow: 0 0 5px rgba(40, 167, 69, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 60px rgba(40, 167, 69, 0.9);
+    }
+  }
+  
+  /* Animação de entrada suave do modal */
+  @keyframes modal-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsividade para dispositivos móveis */
+  @media (max-width: 768px) {
+    .modal {
+      width: 90%; /* Torna a modal mais responsiva */
+      padding: 20px;
+    }
+  
+    .modal-header h2 {
+      font-size: 18px;
+    }
+  
+    .component h3 {
+      font-size: 18px;
+    }
+  
+    .component-description, .component-status {
+      font-size: 14px;
+    }
+  }
+  

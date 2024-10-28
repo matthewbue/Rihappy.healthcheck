@@ -6,26 +6,100 @@ namespace Rihappy.HealthCeck.API.Mapping
 {
     public class VtexStatusMapper
     {
-        public VtexStatusResponseDTO MapToDto(VtexStatus status)
+        public VtexStatusResponseDTO MapToDto(VtexStatus vtexStatus)
         {
-            var dto = new VtexStatusResponseDTO
+             var vtexStatusDto = new VtexStatusResponseDTO
+    {
+        CategoryName = vtexStatus.Summary.Name,
+        Components = new List<CategoryComponentsDto>
+        {
+            new CategoryComponentsDto
             {
-                PlatformStatus = status.Summary.OngoingIncidents.Count == 0 ? "Fully Operational" : "Issues Reported",
-                Components = status.Summary.Components.Select(c => new VtexComponentResponseDTO
-                {
-                    Name = c.Name,
-                    Status = c.Description 
-                }).ToList(),
-                //OngoingIncidents = status.Summary.OngoingIncidents.Select(incident => new VtexIncindentResponseDTO
-                //{
-                //    Name = incident.Name,
-                //    Status = incident.Status,
-                //    LastUpdate = incident.Updates.LastOrDefault()?.PublishedAt.ToString("yyyy-MM-dd HH:mm")
-                //}).ToList(),
-            };
-
-            return dto;
+                GroupName = "Storefront",
+                Components = vtexStatus.Summary.Structure.Items
+                    .SelectMany(item => item.Group.Components)
+                    .Where(c => new[] { "Portal/CMS", "Store Framework", "FastStore", "Sales App", "3rd Party Apps" }.Contains(c.Name))
+                    .Select(component => new ComponentDto
+                    {
+                        Name = component.Name,
+                        Description = component.Description,
+                        Status = InferComponentStatus(vtexStatus, component.ComponentId)
+                    }).ToList()
+            },
+            new CategoryComponentsDto
+            {
+                GroupName = "Checkout",
+                Components = vtexStatus.Summary.Structure.Items
+                    .SelectMany(item => item.Group.Components)
+                    .Where(c => new[] { "Order Placement", "Shipping Calculation", "Pricing Calculation", "Payments Gateway", "Payment Connectors" }.Contains(c.Name))
+                    .Select(component => new ComponentDto
+                    {
+                        Name = component.Name,
+                        Description = component.Description,
+                        Status = InferComponentStatus(vtexStatus, component.ComponentId)
+                    }).ToList()
+            },
+            new CategoryComponentsDto
+            {
+                GroupName = "Admin",
+                Components = vtexStatus.Summary.Structure.Items
+                    .SelectMany(item => item.Group.Components)
+                    .Where(c => new[] { "Catalog Management", "Content Management", "Order Management", "Marketplace Connectors", "Admin Operations" }.Contains(c.Name))
+                    .Select(component => new ComponentDto
+                    {
+                        Name = component.Name,
+                        Description = component.Description,
+                        Status = InferComponentStatus(vtexStatus, component.ComponentId)
+                    }).ToList()
+            },
+            new CategoryComponentsDto
+            {
+                GroupName = "Developer Tools",
+                Components = vtexStatus.Summary.Structure.Items
+                    .SelectMany(item => item.Group.Components)
+                    .Where(c => new[] { "VTEX IO", "Master Data", "API Integrations" }.Contains(c.Name))
+                    .Select(component => new ComponentDto
+                    {
+                        Name = component.Name,
+                        Description = component.Description,
+                        Status = InferComponentStatus(vtexStatus, component.ComponentId)
+                    }).ToList()
+            }
         }
+    };
+            return vtexStatusDto;
+        }
+
+        private string InferComponentStatus(VtexStatus vtexStatus, string componentId)
+{
+    if (vtexStatus.Summary.OngoingIncidents != null)
+    {
+        var ongoingIncident = vtexStatus.Summary.OngoingIncidents
+            .FirstOrDefault(incident => incident.Updates != null && 
+                incident.Updates.Any(update => update.Message != null && update.Message.Contains(componentId)));
+
+        if (ongoingIncident != null)
+        {
+            return "Degraded";
+        }
+    }
+
+    // Verificar se está em manutenção agendada
+    if (vtexStatus.Summary.ScheduledMaintenances != null)
+    {
+      //  var scheduledMaintenance = vtexStatus.Summary.ScheduledMaintenances
+       //     .FirstOrDefault(maintenance => maintenance.Components != null &&
+       //         maintenance.Components.Any(c => c.ComponentId == componentId));
+
+       // if (scheduledMaintenance != null)
+       // {
+       //     return "Under Maintenance";
+      //  }
+    }
+
+    // Caso contrário, assume que está operacional
+    return "Operational";
+}
 
         public List<VtexIncindentResponseDTO> MapIncidentToDto(List<Incident> incidents)
         {

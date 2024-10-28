@@ -1,41 +1,73 @@
 <div class="status-container">
-    <div class="platform-status">
-      <div class="status-background">
-        <h1>Sistema em Pleno Funcionamento</h1>
-        <p>Todos os componentes estão operando dentro dos parâmetros esperados.</p>
-      </div>
-    </div>
-  
-    <div class="section-wrapper">
-      <h2><i class="fas fa-cogs"></i> Componentes do Sistema</h2>
-      <div class="components-list">
-        <div *ngFor="let component of components" class="card">
-          <div class="card-header">
-            <h3>{{ component.name }}</h3>
-            <span class="status-led" [ngClass]="{'led-green': component.status === 'Operational', 'led-red': component.status !== 'Operational'}"></span>
-          </div>
-          <p><i class="fas fa-circle-notch"></i> Status: {{ component.status }}</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="section-wrapper">
-      <h2><i class="fas fa-exclamation-triangle"></i> Incidentes em Andamento</h2>
-      <div *ngIf="ongoingIncidents.length > 0; else noIncidents">
-        <div class="components-list">
-          <div *ngFor="let incident of ongoingIncidents" class="card">
-            <div class="card-header">
-              <h3>{{ incident.name }}</h3>
-              <span class="status-led" [ngClass]="{'led-green': incident.status === 'Operational', 'led-red': incident.status !== 'Operational'}"></span>
-            </div>
-            <p><i class="fas fa-exclamation-circle"></i> Status: {{ incident.status }}</p>
-            <p><i class="fas fa-clock"></i> Última Atualização: {{ incident.lastUpdate }}</p>
-          </div>
-        </div>
-      </div>
-      <ng-template #noIncidents>
-        <p class="no-incidents"><i class="fas fa-check-circle"></i> Não há incidentes em andamento no momento.</p>
-      </ng-template>
+  <div class="platform-status">
+    <div class="status-background">
+      <h1>{{ platformStatus }}</h1>
+      <p>{{ platformStatusDescription }}</p>
     </div>
   </div>
-  
+
+  <!-- Componentes do Sistema -->
+  <div class="section-wrapper">
+    <h2><i class="fas fa-cogs"></i> Componentes do Sistema</h2>
+    <div class="components-list">
+      <div *ngFor="let group of components" class="card">
+        <div class="card-header">
+          <h3>{{ group.groupName }}</h3>
+          <span class="status-led" [ngClass]="{'led-green': getGroupStatus(group) === 'Operational', 'led-red': getGroupStatus(group) !== 'Operational'}"></span>
+          <button class="view-details-button" (click)="openModal(group)">Ver Detalhes</button>
+        </div>
+        <p><i class="fas fa-circle-notch"></i> Status: {{ getGroupStatus(group) }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incidentes em Andamento -->
+  <div class="section-wrapper">
+    <h2><i class="fas fa-exclamation-triangle"></i> Incidentes em Andamento</h2>
+    <div *ngIf="ongoingIncidents.length > 0; else noIncidents">
+      <div class="components-list">
+        <div *ngFor="let incident of ongoingIncidents" class="card">
+          <div class="card-header">
+            <h3>{{ incident.name }}</h3>
+            <span class="status-led" [ngClass]="{'led-green': incident.status === 'Operational', 'led-red': incident.status !== 'Operational'}"></span>
+          </div>
+          <p><i class="fas fa-exclamation-circle"></i> Status: {{ incident.status }}</p>
+          <p><i class="fas fa-clock"></i> Última Atualização: {{ incident.lastUpdate }}</p>
+        </div>
+      </div>
+    </div>
+    <ng-template #noIncidents>
+      <p class="no-incidents"><i class="fas fa-check-circle"></i> Não há incidentes em andamento no momento.</p>
+    </ng-template>
+  </div>
+
+  <!-- Histórico de Incidentes -->
+  <div class="section-wrapper">
+    <h2><i class="fas fa-history"></i> Histórico de Incidentes</h2>
+    <table class="incident-history-table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Nome do Incidente</th>
+          <th>Status</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let incident of incidentHistory">
+          <td>{{ incident.date }}</td>
+          <td>{{ incident.name }}</td>
+          <td><span class="status-led" [ngClass]="{'led-green': incident.status === 'Resolved', 'led-red': incident.status !== 'Resolved'}"></span>{{ incident.status }}</td>
+          <td>{{ incident.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal: exibido condicionalmente -->
+  <app-modal *ngIf="isModalVisible"
+             [components]="selectedComponents"
+             [groupName]="selectedGroupName"
+             (close)="closeModal()">
+  </app-modal>
+</div>

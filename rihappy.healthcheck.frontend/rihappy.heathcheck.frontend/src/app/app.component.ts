@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { StatusComponent } from "./components/panel-status/panel-status.component";
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from "./components/menu/menu.component";
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, StatusComponent, CommonModule, MenuComponent],
+  imports: [RouterOutlet, StatusComponent, CommonModule, MenuComponent,ModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
