@@ -48,15 +48,40 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public string Description { get; set; }
     }
 
+    // Classe para representar os componentes afetados por incidentes
     public class AffectedComponent
     {
-        // Propriedades para componentes afetados, se necessário
+        [JsonProperty("component_id")]
+        public string ComponentId { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; } // Exemplo: partial_outage, major_outage, etc.
+    }
+
+    // Classe para impactos de componentes, se necessário
+    public class ComponentImpact
+    {
+        [JsonProperty("component_id")]
+        public string ComponentId { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; } // Exemplo: partial_outage, degraded, etc.
+
+        [JsonProperty("start_at")]
+        public DateTime StartAt { get; set; } // Quando começou o impacto
     }
 
     public class OngoingIncident
     {
         public string Name { get; set; }
         public string Status { get; set; }
+
+        [JsonProperty("affected_components")]
+        public List<AffectedComponent> AffectedComponents { get; set; } // Lista de componentes afetados
+
+        [JsonProperty("component_impacts")]
+        public List<ComponentImpact> ComponentImpacts { get; set; } // Lista de impactos nos componentes
+
         public List<IncidentUpdate> Updates { get; set; }
     }
 
@@ -66,10 +91,39 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public DateTime PublishedAt { get; set; } 
     }
 
-    public class ScheduledMaintenance
-    {
-        // Propriedades para manutenção programada, se necessário
-    }
+public class ScheduledMaintenance
+{
+    [JsonProperty("id")]
+    public string Id { get; set; } // Identificador único da manutenção
+
+    [JsonProperty("name")]
+    public string Name { get; set; } // Nome ou descrição curta da manutenção
+
+    [JsonProperty("status")]
+    public string Status { get; set; } // Status da manutenção (ex: scheduled, in_progress, completed)
+
+    [JsonProperty("scheduled_start_at")]
+    public DateTime ScheduledStartAt { get; set; } // Data e hora de início da manutenção
+
+    [JsonProperty("scheduled_end_at")]
+    public DateTime ScheduledEndAt { get; set; } // Data e hora do fim previsto da manutenção
+
+    [JsonProperty("components")]
+    public List<AffectedComponent> Components { get; set; } // Lista de componentes afetados pela manutenção
+
+    [JsonProperty("description")]
+    public string Description { get; set; } // Descrição mais detalhada do que será realizado na manutenção
+
+    [JsonProperty("impact")]
+    public string Impact { get; set; } // Impacto previsto durante a manutenção (ex: serviço interrompido, desempenho reduzido)
+
+    [JsonProperty("created_at")]
+    public DateTime CreatedAt { get; set; } // Data e hora de quando a manutenção foi criada ou agendada
+
+    [JsonProperty("updated_at")]
+    public DateTime UpdatedAt { get; set; } // Última data e hora em que as informações de manutenção foram atualizadas
+}
+
 
     public class Structure
     {
@@ -113,5 +167,4 @@ namespace Rihappy.HealthCheck.Domain.Entities
         [JsonProperty("data_available_since")]
         public DateTime DataAvailableSince { get; set; }
     }
-
 }
