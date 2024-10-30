@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Rihappy.HealthCheck.Application\Rihappy.HealthCheck.Application.csproj" />
     <ProjectReference Include="..\Rihappy.HealthCheck.Domain\Rihappy.HealthCheck.Domain.csproj" />
   </ItemGroup>
 
