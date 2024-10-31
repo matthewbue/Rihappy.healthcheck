@@ -13,11 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [CommonModule, ModalComponent, HttpClientModule]
 })
 export class StatusComponent {
-  platformStatus: string = 'Status Operacional';
+  platformStatus: string = 'VTEX';
   platformStatusDescription: string = 'Todos os sistemas Vtex estao em Pleno funcionamento.';
   components: Group[] = [];
   ongoingIncidents: any[] = []; // Incidentes em andamento, pode ser preenchido posteriormente
-  
+  showIncidentHistory = false; // Controla a visibilidade do histórico de incidentes
+
   // Variáveis para o modal
   isModalVisible: boolean = false;
   selectedGroupName: string = '';
@@ -69,5 +70,10 @@ incidentHistory = [
   // Método para fechar o modal
   closeModal(): void {
     this.isModalVisible = false;
+  }
+
+  // Alterna a visibilidade do histórico
+  toggleIncidentHistory() {
+    this.showIncidentHistory = !this.showIncidentHistory;
   }
 }

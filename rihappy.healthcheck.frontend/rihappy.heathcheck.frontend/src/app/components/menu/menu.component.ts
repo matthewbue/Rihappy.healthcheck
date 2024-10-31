@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { StatusComponent } from "../panel-status/panel-status.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css'],
-  imports: [CommonModule, StatusComponent]
+  imports: [CommonModule, StatusComponent, RouterLink]
 })
 export class MenuComponent {
   isCollapsed = false;

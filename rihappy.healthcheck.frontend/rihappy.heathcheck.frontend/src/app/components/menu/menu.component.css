@@ -1,10 +1,8 @@
 /* Container principal */
 .app-container {
     display: flex;
-    flex-direction: row;
-    width: 100%;
     height: 100vh;
-    overflow: hidden;
+    position: relative; /* Importante para garantir que o menu lateral e o conteúdo sejam posicionados corretamente */
 }
 
 /* Menu lateral */
@@ -14,20 +12,17 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Poppins', sans-serif;
-    position: fixed;
+    position: fixed; /* Fixa o menu lateral no lado esquerdo da tela */
     top: 0;
     left: 0;
-    height: 100vh; /* Ocupa toda a altura da página */
-    transition: transform 0.3s ease, width 0.3s ease; /* Suaviza a transição do colapso do menu */
-    z-index: 100; /* Garante que o menu fique acima do conteúdo */
-    border-right: 1px solid #ddd; /* Borda sutil à direita */
-
+    height: 100vh;
+    transition: width 0.3s ease; /* Suaviza a transição do colapso do menu */
+    z-index: 100; /* Garante que o menu lateral fique acima do conteúdo */
 }
 
-/* Colapso do menu */
+/* Menu lateral colapsado */
 .sidebar.collapsed {
-    width: 80px; /* Largura do menu quando colapsado */
-    transition: width 0.3s ease; /* Suaviza a animação de colapso */
+    width: 80px; /* Largura reduzida quando o menu está colapsado */
 }
 
 /* Logo do menu */
@@ -63,12 +58,6 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Ícone dentro do item de menu */
-.menu-item a i {
-    font-size: 20px;
-    margin-right: 10px; /* Espaço entre o ícone e o texto */
-    color: #6c63ff; /* Cor do ícone */
-}
 .menu-item a:hover {
     background-color: #e5e5f7;
     color: #4c2889;
@@ -94,17 +83,25 @@
 
 /* Conteúdo principal */
 .content {
-    flex-grow: 1;
     margin-left: 240px; /* Espaço para o menu lateral */
+    width: calc(100% - 240px); /* O conteúdo principal ocupa o restante da largura */
     padding: 20px;
     transition: margin-left 0.3s ease; /* Transição suave ao mover o conteúdo */
 }
 
 .content.collapsed {
     margin-left: 80px; /* Quando o menu está colapsado */
+    width: calc(100% - 80px); /* O conteúdo se ajusta para ocupar o restante da tela */
 }
 
-.sidebar ul li:not(:last-child) {
-    border-bottom: 3px solid #ececec; /* Linha separadora sutil */
-    padding-bottom: 10px;
+/* Responsividade */
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 80px; /* Largura reduzida em telas menores */
+    }
 }

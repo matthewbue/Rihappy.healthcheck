@@ -33,7 +33,7 @@ namespace Rihappy.HealthCeck.API.Controllers
         }
 
         [HttpGet("status")]
-        public async Task<IActionResult> GetStatus()
+        public async Task<IActionResult> GetStatusVtex()
         {
             try
             {

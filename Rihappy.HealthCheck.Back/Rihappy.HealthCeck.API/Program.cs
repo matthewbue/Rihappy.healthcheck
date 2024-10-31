@@ -28,6 +28,8 @@ builder.Services.AddHttpClient<IHealthRepository, HealthRepository>(client => {
 
 builder.Services.AddScoped<IHealthRepository, HealthRepository>();
 builder.Services.AddScoped<IHealthService, HealthService>();
+builder.Services.AddScoped<IHealthSuperAppRepository, HealthSuperAppRepository>();
+builder.Services.AddScoped<IHealthSuperAppService, HealthSuperAppService>();
 
 var app = builder.Build();
 app.UseCors("AllowAllOrigins");

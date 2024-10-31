@@ -1,62 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\",
+  "WorkspaceRootPath": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}|Rihappy.HealthCheck.Data.Rest\\Rihappy.HealthCheck.Data.Rest.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.data.rest\\repositories\\healthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}|Rihappy.HealthCheck.Data.Rest\\Rihappy.HealthCheck.Data.Rest.csproj|solutionrelative:rihappy.healthcheck.data.rest\\repositories\\healthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}|Rihappy.HealthCheck.Data.Rest\\Rihappy.HealthCheck.Data.Rest.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.data.rest\\repositories\\healthsuperapprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}|Rihappy.HealthCheck.Data.Rest\\Rihappy.HealthCheck.Data.Rest.csproj|solutionrelative:rihappy.healthcheck.data.rest\\repositories\\healthsuperapprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthceck.api\\controllers\\healthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|solutionrelative:rihappy.healthceck.api\\controllers\\healthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthceck.api\\controllers\\healthsuperappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|solutionrelative:rihappy.healthceck.api\\controllers\\healthsuperappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.application\\service\\healthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\service\\healthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.application\\service\\healthsuperappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\service\\healthsuperappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.application\\mapping\\vtexstatusmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\mapping\\vtexstatusmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.application\\dtos\\response\\healthchecksuperappresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\dtos\\response\\healthchecksuperappresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.domain\\entities\\vtexstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|solutionrelative:rihappy.healthcheck.domain\\entities\\vtexstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.domain\\interface\\repositories\\ihealthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|solutionrelative:rihappy.healthcheck.domain\\interface\\repositories\\ihealthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.application\\interface\\service\\ihealthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\interface\\service\\ihealthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.domain\\entities\\vtexincident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|solutionrelative:rihappy.healthcheck.domain\\entities\\vtexincident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.application\\dtos\\response\\vtexincidentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\dtos\\response\\vtexincidentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthceck.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|solutionrelative:rihappy.healthceck.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.application\\dtos\\response\\vtexstatusresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\dtos\\response\\vtexstatusresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.application\\dtos\\response\\vtexcomponentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\dtos\\response\\vtexcomponentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthceck.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthceck.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{107D1980-04E2-44D1-AB9C-9EFAB8FA6ADE}|Rihappy.HealthCeck.API\\Rihappy.HealthCeck.API.csproj|solutionrelative:rihappy.healthceck.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|c:\\users\\mb tech\\source\\repos\\rihappy.healthceck\\rihappy.healthcheck.domain\\entities\\vtexcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|solutionrelative:rihappy.healthcheck.domain\\entities\\vtexcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.application\\interface\\service\\ihealthsuperappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\interface\\service\\ihealthsuperappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.domain\\interface\\repositories\\ihealthsuperapprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|solutionrelative:rihappy.healthcheck.domain\\interface\\repositories\\ihealthsuperapprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.domain\\entities\\healthsuperapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D44850-4935-476E-A553-8C06F35181F8}|Rihappy.HealthCheck.Domain\\Rihappy.HealthCheck.Domain.csproj|solutionrelative:rihappy.healthcheck.domain\\entities\\healthsuperapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.application\\service\\healthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\service\\healthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}|Rihappy.HealthCheck.Data.Rest\\Rihappy.HealthCheck.Data.Rest.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.data.rest\\repositories\\healthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2062ED4-B5BF-43BB-AED1-A7E2AA3A8979}|Rihappy.HealthCheck.Data.Rest\\Rihappy.HealthCheck.Data.Rest.csproj|solutionrelative:rihappy.healthcheck.data.rest\\repositories\\healthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,178 +58,133 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VtexStatus.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Domain\\Entities\\VtexStatus.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Domain\\Entities\\VtexStatus.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Domain\\Entities\\VtexStatus.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Domain\\Entities\\VtexStatus.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAA9wHMAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "HealthSuperAppService.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Service\\HealthSuperAppService.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\Service\\HealthSuperAppService.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Service\\HealthSuperAppService.cs",
+              "RelativeToolTip": "Rihappy.HealthCheck.Application\\Service\\HealthSuperAppService.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAqwA4AAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T15:31:12.872Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "VtexStatusMapper.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\Mapping\\VtexStatusMapper.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\Mapping\\VtexStatusMapper.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\Mapping\\VtexStatusMapper.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Application\\Mapping\\VtexStatusMapper.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAswAoAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T20:59:37.181Z",
+              "WhenOpened": "2024-10-30T18:05:59.019Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "IHealthRepository.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Domain\\Interface\\Repositories\\IHealthRepository.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Domain\\Interface\\Repositories\\IHealthRepository.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Domain\\Interface\\Repositories\\IHealthRepository.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Domain\\Interface\\Repositories\\IHealthRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Title": "IHealthSuperAppService.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Interface\\Service\\IHealthSuperAppService.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\Interface\\Service\\IHealthSuperAppService.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Interface\\Service\\IHealthSuperAppService.cs",
+              "RelativeToolTip": "Rihappy.HealthCheck.Application\\Interface\\Service\\IHealthSuperAppService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA4AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T14:54:16.425Z",
+              "WhenOpened": "2024-10-30T18:21:17.068Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HealthController.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCeck.API\\Controllers\\HealthController.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCeck.API\\Controllers\\HealthController.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCeck.API\\Controllers\\HealthController.cs",
-              "RelativeToolTip": "Rihappy.HealthCeck.API\\Controllers\\HealthController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwCcAAAAQAAAA",
+              "Title": "HealthSuperAppController.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCeck.API\\Controllers\\HealthSuperAppController.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCeck.API\\Controllers\\HealthSuperAppController.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCeck.API\\Controllers\\HealthSuperAppController.cs",
+              "RelativeToolTip": "Rihappy.HealthCeck.API\\Controllers\\HealthSuperAppController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwDgAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T19:01:10.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HealthService.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\Service\\HealthService.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\Service\\HealthService.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\Service\\HealthService.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Application\\Service\\HealthService.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAYwDkAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T14:41:20.053Z",
+              "WhenOpened": "2024-10-30T18:07:13.621Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HealthRepository.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthRepository.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthRepository.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthRepository.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthRepository.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAtwDIAAAAaAAAA",
+              "Title": "HealthSuperAppRepository.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthSuperAppRepository.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthSuperAppRepository.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthSuperAppRepository.cs",
+              "RelativeToolTip": "Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthSuperAppRepository.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwA8AAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T14:41:48.712Z",
+              "WhenOpened": "2024-10-30T18:31:19.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HealthCheckSuperAppResponseDTO.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\DTOs\\Response\\HealthCheckSuperAppResponseDTO.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\DTOs\\Response\\HealthCheckSuperAppResponseDTO.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\DTOs\\Response\\HealthCheckSuperAppResponseDTO.cs",
+              "RelativeToolTip": "Rihappy.HealthCheck.Application\\DTOs\\Response\\HealthCheckSuperAppResponseDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T18:33:25.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCeck.API\\Program.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCeck.API\\Program.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCeck.API\\Program.cs",
+              "RelativeToolTip": "Rihappy.HealthCeck.API\\Program.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T21:10:58.205Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "IHealthService.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\Interface\\Service\\IHealthService.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\Interface\\Service\\IHealthService.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\Interface\\Service\\IHealthService.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Application\\Interface\\Service\\IHealthService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAzAAAA",
+              "Title": "IHealthSuperAppRepository.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Domain\\Interface\\Repositories\\IHealthSuperAppRepository.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Domain\\Interface\\Repositories\\IHealthSuperAppRepository.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Domain\\Interface\\Repositories\\IHealthSuperAppRepository.cs",
+              "RelativeToolTip": "Rihappy.HealthCheck.Domain\\Interface\\Repositories\\IHealthSuperAppRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T18:53:37.644Z",
+              "WhenOpened": "2024-10-30T18:10:29.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HealthSuperApp.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Domain\\Entities\\HealthSuperApp.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Domain\\Entities\\HealthSuperApp.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Domain\\Entities\\HealthSuperApp.cs",
+              "RelativeToolTip": "Rihappy.HealthCheck.Domain\\Entities\\HealthSuperApp.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T18:18:31.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "VtexIncidentResponseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexIncidentResponseDTO.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexIncidentResponseDTO.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexIncidentResponseDTO.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexIncidentResponseDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAARAAAA",
+              "Title": "HealthService.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Service\\HealthService.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\Service\\HealthService.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Service\\HealthService.cs",
+              "RelativeToolTip": "Rihappy.HealthCheck.Application\\Service\\HealthService.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAqwCUAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:55:38.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "VtexIncident.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Domain\\Entities\\VtexIncident.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Domain\\Entities\\VtexIncident.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Domain\\Entities\\VtexIncident.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Domain\\Entities\\VtexIncident.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T15:33:57.466Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "VtexStatusResponseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexStatusResponseDTO.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexStatusResponseDTO.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexStatusResponseDTO.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexStatusResponseDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T15:05:09.911Z"
+              "WhenOpened": "2024-10-30T18:05:57.599Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCeck.API\\appsettings.json",
-              "RelativeDocumentMoniker": "Rihappy.HealthCeck.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCeck.API\\appsettings.json",
-              "RelativeToolTip": "Rihappy.HealthCeck.API\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-23T17:20:08.133Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "VtexComponentResponseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexComponentResponseDTO.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexComponentResponseDTO.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexComponentResponseDTO.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Application\\DTOs\\Response\\VtexComponentResponseDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAARAAAA",
+              "Title": "HealthRepository.cs",
+              "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthRepository.cs",
+              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthRepository.cs",
+              "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthRepository.cs",
+              "RelativeToolTip": "Rihappy.HealthCheck.Data.Rest\\Repositories\\HealthRepository.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAgwEQAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T15:12:58.92Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VtexComponent.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Domain\\Entities\\VtexComponent.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCheck.Domain\\Entities\\VtexComponent.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCheck.Domain\\Entities\\VtexComponent.cs",
-              "RelativeToolTip": "Rihappy.HealthCheck.Domain\\Entities\\VtexComponent.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAkwCEAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T15:21:50.258Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCeck.API\\Program.cs",
-              "RelativeDocumentMoniker": "Rihappy.HealthCeck.API\\Program.cs",
-              "ToolTip": "C:\\Users\\MB TECH\\source\\repos\\Rihappy.HealthCeck\\Rihappy.HealthCeck.API\\Program.cs",
-              "RelativeToolTip": "Rihappy.HealthCeck.API\\Program.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAABAAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T17:17:16.761Z"
+              "WhenOpened": "2024-10-30T18:31:31.878Z",
+              "EditorCaption": ""
             }
           ]
         }
