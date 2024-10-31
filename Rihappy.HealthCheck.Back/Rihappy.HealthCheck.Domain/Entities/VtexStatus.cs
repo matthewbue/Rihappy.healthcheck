@@ -24,6 +24,8 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public bool SubscriptionsDisabled { get; set; }
         public string DisplayUptimeMode { get; set; }
         public bool AllowSearchEngineIndexing { get; set; }
+
+         [JsonPropertyName("affected_components")]
         public List<AffectedComponent> AffectedComponents { get; set; }
 
         [JsonPropertyName("Ongoing_incidents")]

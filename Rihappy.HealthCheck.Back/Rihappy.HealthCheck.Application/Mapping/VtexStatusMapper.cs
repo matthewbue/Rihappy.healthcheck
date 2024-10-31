@@ -75,58 +75,63 @@ namespace Rihappy.HealthCeck.API.Mapping
         }
 
         private string InferComponentStatus(VtexStatus vtexStatus, string componentId)
+{
+    // Verificar se há manutenções programadas afetando o componente
+    if (vtexStatus.Summary.ScheduledMaintenances != null)
+    {
+        var maintenance = vtexStatus.Summary.ScheduledMaintenances
+            .FirstOrDefault(m => m.Components != null &&
+                m.Components.Any(c => c.ComponentId == componentId));
+
+        if (maintenance != null)
         {
-                // Verificar se há manutenções programadas afetando o componente
-                if (vtexStatus.Summary.ScheduledMaintenances != null)
-                {
-                    var maintenance = vtexStatus.Summary.ScheduledMaintenances
-                        .FirstOrDefault(m => m.Components != null && 
-                            m.Components.Any(c => c.ComponentId == componentId));
-
-                    if (maintenance != null)
-                    {
-                        return "Under Maintenance";
-                    }
-                }
-
-                // Verificar se o componente está listado em "AffectedComponents"
-                if (vtexStatus.Summary.AffectedComponents != null)
-                {
-                    var affectedComponent = vtexStatus.Summary.AffectedComponents
-                        .FirstOrDefault(c => c.ComponentId == componentId);
-
-                    if (affectedComponent != null)
-                    {
-                        return affectedComponent.Status == "partial_outage" ? "Degraded" : affectedComponent.Status;
-                    }
-                }
-
-                // Verificar se há incidentes em andamento afetando o componente e capturar o pior status
-                string worstStatus = "Operational"; // Status padrão
-                if (vtexStatus.Summary.OngoingIncidents != null)
-                {
-                    foreach (var incident in vtexStatus.Summary.OngoingIncidents)
-                    {
-                        if (incident.ComponentImpacts != null)
-                        {
-                            foreach (var impact in incident.ComponentImpacts
-                                .Where(impact => impact.ComponentId == componentId))
-                            {
-                                if (impact.Status == "partial_outage")
-                                {
-                                    worstStatus = "Degraded";
-                                }
-                                else if (impact.Status == "degraded" && worstStatus != "Degraded")
-                                {
-                                    worstStatus = "Degraded";
-                                }
-                            }
-                        }
-                    }
-                }
-
-            return worstStatus;
+            return "Under Maintenance";
         }
+    }
+
+    // Verificar se o componente está listado em "AffectedComponents"
+    if (vtexStatus.Summary.AffectedComponents != null)
+    {
+        var affectedComponent = vtexStatus.Summary.AffectedComponents
+            .FirstOrDefault(c => c.ComponentId == componentId);
+
+        if (affectedComponent != null)
+        {
+            return affectedComponent.Status == "partial_outage" ? "Degraded" : affectedComponent.Status;
+        }
+    }
+
+    // Verificar se há incidentes em andamento afetando o componente e capturar o pior status
+    string worstStatus = "Operational"; // Status padrão
+    if (vtexStatus.Summary.OngoingIncidents != null)
+    {
+        foreach (var incident in vtexStatus.Summary.OngoingIncidents)
+        {
+            // Verificar se existem ComponentImpacts e processá-los
+            if (incident.ComponentImpacts != null && incident.ComponentImpacts.Any())
+            {
+                foreach (var impact in incident.ComponentImpacts
+                    .Where(impact => impact.ComponentId == componentId))
+                {
+                    if (impact.Status == "full_outage")
+                    {
+                        return "Full Outage"; // Se houver full_outage, já retornamos imediatamente
+                    }
+                    else if (impact.Status == "partial_outage")
+                    {
+                        worstStatus = "Degraded";
+                    }
+                    else if (impact.Status == "degraded" && worstStatus != "Degraded")
+                    {
+                        worstStatus = "Degraded";
+                    }
+                }
+            }
+        }
+    }
+
+    return worstStatus;
+}
 
 
         public List<VtexIncindentResponseDTO> MapIncidentToDto(List<Incident> incidents)
