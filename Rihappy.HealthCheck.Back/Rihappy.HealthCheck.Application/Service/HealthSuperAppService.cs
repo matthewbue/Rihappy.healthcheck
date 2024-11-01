@@ -30,7 +30,7 @@ namespace Rihappy.HealthCheck.Application.Service
                 _logger.LogInformation("Fetching incidents from {StartAt} to {EndAt}");
                 var accounts = await _healthSuperAppRepository.GetSuperAppAccountAsync();
                 VtexStatusMapper _mapper = new VtexStatusMapper();
-                //var resultDto = _mapper.MapIncidentToDto(accounts.accounts);
+                var resultDto = _mapper.MapSuperAppToDto(accounts);
                 return accounts;
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace Rihappy.HealthCheck.Application.Service
                 var checkouts = await _healthSuperAppRepository.GetSuperAppCheckoutAsync();
 
                 VtexStatusMapper _mapper = new VtexStatusMapper();
-                //var resultDto = _mapper.MapToDto(checkouts);
+                var resultDto = _mapper.MapSuperAppToDto(checkouts);
                 return checkouts;
             }
             catch (Exception ex)

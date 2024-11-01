@@ -1,5 +1,6 @@
 ﻿using Rihappy.HealthCheck.Application.DTOs.Response;
 using Rihappy.HealthCheck.Domain.Entities;
+using static Rihappy.HealthCheck.Application.DTOs.Response.StatusResponseDTO;
 using static Rihappy.HealthCheck.Domain.Entities.VtexIncident;
 
 namespace Rihappy.HealthCeck.API.Mapping
@@ -72,6 +73,27 @@ namespace Rihappy.HealthCeck.API.Mapping
                 }
             };
             return vtexStatusDto;
+        }
+
+        public StatusResponseDTO MapSuperAppToDto(HealthSuperApp healthSuperApp)
+        {
+            var statusResponseDto = new StatusResponseDTO
+            {
+                Status = healthSuperApp.Status,
+                TotalDuration = healthSuperApp.TotalDuration,
+                Entries = healthSuperApp.Entries.ToDictionary(
+                    entry => entry.Key,
+                    entry => new EntryDto
+                    {
+                        Data = entry.Value.Data as Dictionary<string, List<List<object>>>,
+                        Duration = entry.Value.Duration,
+                        Status = entry.Value.Status,
+                        Description = entry.Value.Description,
+                        Tags = entry.Value.Tags
+                    })
+            };
+
+            return statusResponseDto;
         }
 
         private string InferComponentStatus(VtexStatus vtexStatus, string componentId)

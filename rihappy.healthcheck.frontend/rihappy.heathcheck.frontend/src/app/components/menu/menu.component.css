@@ -1,107 +1,38 @@
-/* Container principal */
-.app-container {
-    display: flex;
-    height: 100vh;
-    position: relative; /* Importante para garantir que o menu lateral e o conteúdo sejam posicionados corretamente */
-}
-
-/* Menu lateral */
-.sidebar {
-    width: 240px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Poppins', sans-serif;
-    position: fixed; /* Fixa o menu lateral no lado esquerdo da tela */
-    top: 0;
-    left: 0;
-    height: 100vh;
-    transition: width 0.3s ease; /* Suaviza a transição do colapso do menu */
-    z-index: 100; /* Garante que o menu lateral fique acima do conteúdo */
-}
-
-/* Menu lateral colapsado */
-.sidebar.collapsed {
-    width: 80px; /* Largura reduzida quando o menu está colapsado */
-}
-
-/* Logo do menu */
-.menu-logo {
-    width: 100%; /* Ajustar a largura da logo para 100% do menu */
-    max-width: 200px; /* Limitar a largura máxima da logo */
-    height: auto; /* Manter a proporção da logo */
-    display: block;
-    margin: 20px auto; /* Centralizar a logo no menu */
-}
-
-/* Ajuste dos itens do menu */
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 30px; /* Espaço abaixo da logo */
-}
-
-.sidebar ul li {
-    margin-bottom: 20px;
-}
-
-/* Links do menu */
-.menu-item a {
+.logo {
     display: flex;
     align-items: center;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    color: #333; /* Cor do texto */
-    padding: 12px 20px;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 8px;
+}
+
+.logo span {
+    font-weight: bold;
+    color: #333;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: 800px; /* Empurra o menu para a direita */
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
     border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.menu-item a:hover {
-    background-color: #e5e5f7;
-    color: #4c2889;
-}
-
-/* Botão de colapso do menu */
-.toggle-btn {
-    position: absolute;
-    top: 20px;
-    right: -20px;
-    background-color: #4c2889;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 0 8px 8px 0;
     transition: background-color 0.3s ease;
 }
 
-.toggle-btn:hover {
-    background-color: #6e47c6;
+.menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Conteúdo principal */
-.content {
-    margin-left: 240px; /* Espaço para o menu lateral */
-    width: calc(100% - 240px); /* O conteúdo principal ocupa o restante da largura */
-    padding: 20px;
-    transition: margin-left 0.3s ease; /* Transição suave ao mover o conteúdo */
-}
-
-.content.collapsed {
-    margin-left: 80px; /* Quando o menu está colapsado */
-    width: calc(100% - 80px); /* O conteúdo se ajusta para ocupar o restante da tela */
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .content {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .sidebar {
-        width: 80px; /* Largura reduzida em telas menores */
-    }
+.menu-item img {
+    height: 24px;
+    width: auto;
 }
