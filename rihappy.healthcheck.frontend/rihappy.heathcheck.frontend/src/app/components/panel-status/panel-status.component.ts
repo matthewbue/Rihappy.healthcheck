@@ -4,7 +4,6 @@ import { ModalComponent } from '../../modal/modal.component';
 import { HealthStatusService, Group, HealthStatusResponse } from '../../services/health-status.service';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-status',
   standalone: true,
@@ -14,28 +13,22 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class StatusComponent {
   platformStatus: string = 'VTEX';
-  platformStatusDescription: string = 'Todos os sistemas Vtex estao em Pleno funcionamento.';
+  platformStatusDescription: string = 'Todos os sistemas VTEX estão funcionando normalmente.';
   components: Group[] = [];
-  ongoingIncidents: any[] = []; // Incidentes em andamento, pode ser preenchido posteriormente
-  showIncidentHistory = false; // Controla a visibilidade do histórico de incidentes
+  ongoingIncidents: any[] = [];
+  showIncidentHistory = false;
 
-  // Variáveis para o modal
+  // Modal variables
   isModalVisible: boolean = false;
   selectedGroupName: string = '';
   selectedComponents: any[] = [];
 
-incidentHistory = [
-  { date: '2024-10-25', name: 'Cloud provider issue causing elevated 5xx errors', status: 'Resolved', description: 'This incident was caused by a cloud provider issue affecting stores in Argentina. It was resolved after 26 minutes.' },
-  { date: '2024-10-24', name: 'Degraded performance for order management', status: 'Resolved', description: 'An issue with the OMS and order-related modules caused degraded performance. The problem was resolved.' },
-  { date: '2024-10-18', name: 'Issue with VTEX ID login services', status: 'Resolved', description: 'Users experienced error 503 when trying to log in. The issue was resolved after 30 minutes.' },
-  { date: '2024-10-15', name: 'Checkout Delays', status: 'Resolved', description: 'Checkout delays were observed in multiple regions and resolved after monitoring.' },
-  { date: '2024-09-30', name: 'Payment Gateway Outage', status: 'Resolved', description: 'A temporary issue with the payment gateway was resolved in under an hour.' },
-  { date: '2024-09-25', name: 'Shipping API Issue', status: 'Resolved', description: 'Shipping rate calculation issues were resolved within 45 minutes.' },
-  { date: '2024-09-18', name: 'OMS Delays', status: 'Resolved', description: 'Order Management System experienced delays, but the issue was mitigated quickly.' },
-  { date: '2024-08-22', name: 'API Downtime', status: 'Resolved', description: 'Interruption in API services affecting multiple systems. It was resolved after 30 minutes.' },
-  { date: '2024-08-10', name: 'Order Placement Failures', status: 'Resolved', description: 'Order placement failures affected several merchants but were resolved after investigation.' },
-  { date: '2024-07-30', name: 'Shipping Calculation Delays', status: 'Resolved', description: 'Inconsistencies in shipping rate calculations were fixed after an hour of monitoring.' }
-];
+  // Sample incident history
+  incidentHistory = [
+    { date: '2024-10-25', name: 'Cloud provider issue causing elevated 5xx errors', status: 'Resolved', description: 'This incident was caused by a cloud provider issue affecting stores in Argentina. It was resolved after 26 minutes.' },
+    // Additional historical incidents...
+  ];
+
   constructor(private statusService: HealthStatusService) {}
 
   ngOnInit(): void {
@@ -46,33 +39,68 @@ incidentHistory = [
     this.statusService.getHealthStatus().subscribe(
       (data: HealthStatusResponse) => {
         this.components = data.components;
-        this.platformStatus = data.categoryName; // Ajusta o nome da categoria
+        this.platformStatus = data.categoryName;
+
+        this.ongoingIncidents = data.components
+          .flatMap(group => group.components)
+          .filter(component => component.status !== 'Operational')
+          .map(component => ({
+            name: component.name,
+            status: component.status,
+            lastUpdate: new Date(),
+            description: component.description || 'Descrição não disponível',
+            showTooltip: false // Estado inicial do tooltip
+          }));
+
+        this.platformStatusDescription = this.ongoingIncidents.length > 0 
+          ? 'Alguns serviços VTEX estão apresentando problemas. Confira abaixo.' 
+          : 'Todos os sistemas VTEX estão funcionando normalmente.';
+
+        this.addOngoingIncidentsToHistory();
       },
       (error) => {
         console.error('Erro ao buscar status:', error);
+        this.platformStatusDescription = 'Não foi possível verificar o status dos sistemas.';
       }
     );
   }
 
-  // Função para determinar o status do grupo com base nos componentes filhos
+  addOngoingIncidentsToHistory(): void {
+    this.ongoingIncidents.forEach(incident => {
+      const existsInHistory = this.incidentHistory.some(
+        history => history.name === incident.name && history.status === incident.status
+      );
+
+      if (!existsInHistory) {
+        this.incidentHistory.push({
+          date: new Date().toLocaleDateString(),
+          name: incident.name,
+          status: incident.status,
+          description: incident.description
+        });
+      }
+    });
+  }
+
+  // Alterna o estado do tooltip para exibir/esconder
+  toggleTooltip(incident: any): void {
+    incident.showTooltip = !incident.showTooltip;
+  }
   getGroupStatus(group: Group): string {
     const allOperational = group.components.every(comp => comp.status === 'Operational');
     return allOperational ? 'Operational' : 'Degraded';
   }
 
-  // Método para abrir o modal com os componentes do grupo
   openModal(group: Group): void {
     this.selectedGroupName = group.groupName;
     this.selectedComponents = group.components;
     this.isModalVisible = true;
   }
 
-  // Método para fechar o modal
   closeModal(): void {
     this.isModalVisible = false;
   }
 
-  // Alterna a visibilidade do histórico
   toggleIncidentHistory() {
     this.showIncidentHistory = !this.showIncidentHistory;
   }
