@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Rihappy.HealthCheck.Application.DTOs.Response;
 using Rihappy.HealthCheck.Domain.Entities;
 using Rihappy.HealthCheck.Domain.Interface.Repositories;
@@ -8,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Rihappy.HealthCheck.Data.Rest.Repositories
@@ -34,7 +34,7 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            var healthCheckResponse = JsonSerializer.Deserialize<HealthSuperApp>(content);
+            var healthCheckResponse = JsonConvert.DeserializeObject<HealthSuperApp>(content);;
 
             return healthCheckResponse;
         }
@@ -49,7 +49,9 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            var healthCheckResponse = JsonSerializer.Deserialize<HealthSuperApp>(content);
+
+            // Usando JsonConvert do Newtonsoft.Json para desserialização
+            var healthCheckResponse = JsonConvert.DeserializeObject<HealthSuperApp>(content);
 
             return healthCheckResponse;
         }
@@ -64,7 +66,7 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            var healthCheckResponse = JsonSerializer.Deserialize<HealthSuperApp>(content);
+            var healthCheckResponse = JsonConvert.DeserializeObject<HealthSuperApp>(content);
 
             return healthCheckResponse;
         }

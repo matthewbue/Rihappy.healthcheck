@@ -75,6 +75,7 @@ namespace Rihappy.HealthCeck.API.Mapping
             return vtexStatusDto;
         }
 
+
         public StatusResponseDTO MapSuperAppToDto(HealthSuperApp healthSuperApp)
         {
             var statusResponseDto = new StatusResponseDTO
@@ -96,56 +97,51 @@ namespace Rihappy.HealthCeck.API.Mapping
             return statusResponseDto;
         }
 
-        private string InferComponentStatus(VtexStatus vtexStatus, string componentId)
+        
+     private string InferComponentStatus(VtexStatus vtexStatus, string componentId)
+{
+    if (vtexStatus.Summary.ScheduledMaintenances != null)
+    {
+        var maintenance = vtexStatus.Summary.ScheduledMaintenances
+            .FirstOrDefault(m => m.Components != null &&
+                m.Components.Any(c => c.ComponentId == componentId));
+
+        if (maintenance != null)
+>>>>>>> c729940837510eb0bd962b0ba099092795786dac
         {
-                if (vtexStatus.Summary.ScheduledMaintenances != null)
-                {
-                    var maintenance = vtexStatus.Summary.ScheduledMaintenances
-                        .FirstOrDefault(m => m.Components != null && 
-                            m.Components.Any(c => c.ComponentId == componentId));
-
-                    if (maintenance != null)
-                    {
-                        return "Under Maintenance";
-                    }
-                }
-
-                if (vtexStatus.Summary.AffectedComponents != null)
-                {
-                    var affectedComponent = vtexStatus.Summary.AffectedComponents
-                        .FirstOrDefault(c => c.ComponentId == componentId);
-
-                    if (affectedComponent != null)
-                    {
-                        return affectedComponent.Status == "partial_outage" ? "Degraded" : affectedComponent.Status;
-                    }
-                }
-
-                string worstStatus = "Operational"; 
-                if (vtexStatus.Summary.OngoingIncidents != null)
-                {
-                    foreach (var incident in vtexStatus.Summary.OngoingIncidents)
-                    {
-                        if (incident.ComponentImpacts != null)
-                        {
-                            foreach (var impact in incident.ComponentImpacts
-                                .Where(impact => impact.ComponentId == componentId))
-                            {
-                                if (impact.Status == "partial_outage")
-                                {
-                                    worstStatus = "Degraded";
-                                }
-                                else if (impact.Status == "degraded" && worstStatus != "Degraded")
-                                {
-                                    worstStatus = "Degraded";
-                                }
-                            }
-                        }
-                    }
-                }
-
-            return worstStatus;
+            return "Under Maintenance";
         }
+    }
+
+    if (vtexStatus.Summary.AffectedComponents != null)
+    {
+        var affectedComponent = vtexStatus.Summary.AffectedComponents
+            .FirstOrDefault(c => c.ComponentId == componentId);
+
+        if (affectedComponent != null)
+        {
+            return affectedComponent.Status == "partial_outage" ? "Degraded" : affectedComponent.Status;
+        }
+    }
+
+    string worstStatus = "Operational"; 
+    if (vtexStatus.Summary.OngoingIncidents != null)
+    {
+        foreach (var incident in vtexStatus.Summary.OngoingIncidents)
+        {
+            if (incident.ComponentImpacts != null)
+            {
+                foreach (var impact in incident.ComponentImpacts.Where(impact => impact.ComponentId == componentId))
+                {
+                    if (impact.Status == "full_outage") return "Full Outage";
+                    if (impact.Status == "partial_outage" || impact.Status == "degraded") worstStatus = "Degraded";
+                }
+            }
+        }
+    }
+    return worstStatus;
+}
+
 
 
         public List<VtexIncindentResponseDTO> MapIncidentToDto(List<Incident> incidents)
