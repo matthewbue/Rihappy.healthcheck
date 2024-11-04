@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.application\\service\\healthsuperappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\service\\healthsuperappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.application\\mapping\\vtexstatusmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\mapping\\vtexstatusmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.application\\dtos\\response\\statusresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\dtos\\response\\statusresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|c:\\rihappy\\rihappy.healthcheck\\rihappy.healthcheck.back\\rihappy.healthcheck.application\\service\\healthsuperappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D50092A-B753-48CC-BEFF-5BEDE7AA20E0}|Rihappy.HealthCheck.Application\\Rihappy.HealthCheck.Application.csproj|solutionrelative:rihappy.healthcheck.application\\service\\healthsuperappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,37 +30,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "StatusResponseDTO.cs",
               "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\DTOs\\Response\\StatusResponseDTO.cs",
               "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\DTOs\\Response\\StatusResponseDTO.cs",
               "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\DTOs\\Response\\StatusResponseDTO.cs",
               "RelativeToolTip": "Rihappy.HealthCheck.Application\\DTOs\\Response\\StatusResponseDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAwwBEAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T14:09:24.859Z"
+              "WhenOpened": "2024-11-01T14:09:24.859Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "VtexStatusMapper.cs",
               "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Mapping\\VtexStatusMapper.cs",
               "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\Mapping\\VtexStatusMapper.cs",
               "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Mapping\\VtexStatusMapper.cs",
               "RelativeToolTip": "Rihappy.HealthCheck.Application\\Mapping\\VtexStatusMapper.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAQwFcAAABaAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAawFgAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T14:01:40.072Z"
+              "WhenOpened": "2024-11-01T14:01:40.072Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "HealthSuperAppService.cs",
               "DocumentMoniker": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Service\\HealthSuperAppService.cs",
               "RelativeDocumentMoniker": "Rihappy.HealthCheck.Application\\Service\\HealthSuperAppService.cs",
               "ToolTip": "C:\\rihappy\\Rihappy.healthcheck\\Rihappy.HealthCheck.Back\\Rihappy.HealthCheck.Application\\Service\\HealthSuperAppService.cs",
               "RelativeToolTip": "Rihappy.HealthCheck.Application\\Service\\HealthSuperAppService.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAQwCUAAABUAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAYwCUAAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T14:00:29.16Z",
               "EditorCaption": ""

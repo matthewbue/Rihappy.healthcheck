@@ -1,11 +1,22 @@
-<div class="status-container">
-  <!-- Status principal da plataforma -->
-  <div class="platform-status">
-    <div class="status-background">
-      <h1>{{ platformStatus }}</h1>
-      <p>{{ platformStatusDescription }}</p>
+<div class="app-container">
+  <div class="status-container">
+    <!-- Status principal da plataforma -->
+    <div class="platform-status">
+      <div class="status-background">
+        <div class="status-logo">
+          <img src="../../union.svg" alt="Logo" class="vtex-logo"> 
+        </div>
+      <div class="status-message">
+        <p>Os sistemas estão em pleno funcionamento <span class="emoji">😊</span></p>
+      </div>
+      <div class="status-button">
+        <button class="toggle-history-button" (click)="toggleIncidentHistory()">
+          <i class="fas" [ngClass]="{'fa-chevron-up': showIncidentHistory, 'fa-chevron-down': !showIncidentHistory}"></i>
+          {{ showIncidentHistory ? 'Esconder Histórico' : 'Histórico' }}
+        </button>
+      </div>
+      </div>
     </div>
-  </div>
 
   <!-- Componentes do Sistema -->
   <div class="section-wrapper">
@@ -44,11 +55,6 @@
 
   <!-- Histórico de Incidentes -->
   <div class="section-wrapper">
-    <h2><i class="fas fa-history"></i> Histórico de Incidentes</h2>
-    <button class="toggle-history-button" (click)="toggleIncidentHistory()">
-      <i class="fas" [ngClass]="{'fa-chevron-up': showIncidentHistory, 'fa-chevron-down': !showIncidentHistory}"></i>
-      {{ showIncidentHistory ? 'Esconder Histórico' : 'Mostrar Histórico' }}
-    </button>
     <table class="incident-history-table" *ngIf="showIncidentHistory">
       <thead>
         <tr>

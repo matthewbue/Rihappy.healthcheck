@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class StatusComponent {
   platformStatus: string = 'VTEX';
-  platformStatusDescription: string = 'Todos os sistemas VTEX estão funcionando normalmente.';
+  platformStatusDescription: string = 'Os sistemas estão em pleno funcionamento 😃';
   components: Group[] = [];
   ongoingIncidents: any[] = [];
   showIncidentHistory = false;
@@ -54,7 +54,7 @@ export class StatusComponent {
 
         this.platformStatusDescription = this.ongoingIncidents.length > 0 
           ? 'Alguns serviços VTEX estão apresentando problemas. Confira abaixo.' 
-          : 'Todos os sistemas VTEX estão funcionando normalmente.';
+          : 'Os sistemas estão em pleno funcionamento 😃';
 
         this.addOngoingIncidentsToHistory();
       },

@@ -86,7 +86,7 @@ namespace Rihappy.HealthCeck.API.Mapping
                     entry => entry.Key,
                     entry => new EntryDto
                     {
-                        Data = entry.Value.Data as Dictionary<string, List<List<object>>>,
+                        //Data = entry.Value.Data as Dictionary<string, List<List<object>>>,
                         Duration = entry.Value.Duration,
                         Status = entry.Value.Status,
                         Description = entry.Value.Description,
@@ -107,7 +107,6 @@ namespace Rihappy.HealthCeck.API.Mapping
                 m.Components.Any(c => c.ComponentId == componentId));
 
         if (maintenance != null)
->>>>>>> c729940837510eb0bd962b0ba099092795786dac
         {
             return "Under Maintenance";
         }

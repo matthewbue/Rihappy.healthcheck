@@ -1,26 +1,73 @@
-/* Container principal */
+/* Container principal do status */
 .app-container {
-    width: 100%; /* Usa a largura total da página */
-    max-width: 1872px;
-    margin: 0 auto; /* Centraliza o conteúdo */
-    position: relative;
-    padding-top: 96px; /* Adiciona espaçamento do topo para alinhar com o menu */
-    padding-left: 24px;
-    padding-right: 24px   
+    display: flex;
+    justify-content: center;
+    padding: 0; 
+    background-color: #f1f1f1;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Fundo do status */
+.status-container {
+    width: 100%;
+    max-width: 1872px;
+    border-radius: 40px 0 0 0; /* Bordas arredondadas no canto superior esquerdo */
+    color: rgb(12, 12, 12);
+    padding: 20px 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: -35px; /* Ajusta a margem superior para colar na barra de menu */
+}
+
+.status-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre o logo e o texto */
+}
+
+.status-logo .vtex-logo {
+    width: 200px;
+    height: auto;
+}
+
+.status-logo p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Status da Plataforma */
+.platform-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
 .status-background {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     background: linear-gradient(135deg, #28a745, #6ddf6d);
-    padding: 30px;
+    padding: 50px;
     border-radius: 15px;
     color: white;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    margin-bottom: 50px;
-    max-width: 100%; /* Ajusta a largura para preencher o contêiner principal */
+    flex-grow: 1;
+    text-align: center;
+    font-size: 40px; /* Aumenta o tamanho do texto */
+    font-weight: bold; /* Aplica o negrito */
+    font-family: sans-serif;
 }
 
-
+.status-message{
+    width: 100%;
+    display: flex;
+    position: absolute;
+    left: 400px;
+}
 
 /* Lista de componentes */
 .components-list {
@@ -32,18 +79,29 @@
 
 /* Cartões dos componentes */
 .card {
-    width: Fixed 453px;
-    height: Fixed 288px;
+    width: Fixed 253px;
+    height: Fixed 88px;
     top: 392px;
     left: 24px;
     padding: 24px 48px 40px 48px;
     gap: 8px;
-    border-radius: 40px;
-    border: 4px 0px 0px 0px;
+    border-radius: 50px;
     opacity: 0px;
     background: #FFFFFF;
-    border: 4px solid #2AA846
+    border: 4px solid #2AA846;
+    box-shadow: 0px 0px 15px rgba(42, 168, 70, 0.6);
+    border-bottom-width: 20px; /* Ajuste a espessura da borda inferior */
+}
 
+.card h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.card p {
+    font-size: 0.9em;
+    color: #666;
 }
 
 .card:hover {
@@ -88,19 +146,19 @@
 
 /* Botão Ver Detalhes */
 .view-details-button {
-    background-color: #256599;
-    color: white;
+    background-color: #E0E0E0; /* Botão cinza */
+    color: #333;
     border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    font-size: 14px;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 0.9em;
     cursor: pointer;
+    margin-top: auto;
     transition: background-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .view-details-button:hover {
-    background-color: #0056b3;
+    background-color: #cccccc;
 }
 
 .view-details-button:active {
@@ -175,31 +233,30 @@
     }
 }
 
+.status-button {
+    position: relative;
+    top: 50px;
+}
+
 /* Botão de histórico diferenciado */
 .toggle-history-button {
-    background: linear-gradient(145deg, #4c2889, #7647c6);
+    background: none;
+    border: 2px solid white;
+    border-radius: 20px;
     color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 12px 25px;
+    padding: 5px 80px;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.7);
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    align-self: flex-end; /* Alinha o botão mais para baixo */
+    margin-right: 40px; /* Ajusta a posição horizontal, se necessário */
 }
 
 .toggle-history-button:hover {
-    background: linear-gradient(145deg, #7647c6, #5f3aa7);
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15), -4px -4px 10px rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px);
+    background-color: white;
+    color: #2AA846;
 }
-
 .toggle-history-button:active {
-    background: linear-gradient(145deg, #2c1654, #5c35b1);
     box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.1);
     transform: translateY(0);
 }
@@ -224,7 +281,7 @@
 
 /* Estilo para o título da seção */
 .section-wrapper h2 {
-    color: #ff9800;
+    color: #10100f;
     font-weight: bold;
     text-transform: uppercase;
     display: flex;
@@ -318,3 +375,5 @@
         transform: scale(1);
     }
 }
+
+
