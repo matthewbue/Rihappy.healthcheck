@@ -1,19 +1,17 @@
-/* Container principal do status */
-
 
 .status-container {
     width: 100%;
-    max-width: none; /* Remove a restrição de largura máxima */
-    padding: 0; /* Remove padding lateral */
-    margin-top: 0; /* Remove margens superiores desnecessárias */
+    max-width: none; 
+    padding: 0; 
+    margin-top: 0; 
   }us-logo {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espaçamento entre o logo e o texto */
+    gap: 20px; 
 }
 
 .status-logo .vtex-logo {
-    width: 150px;
+    width: 250px;
     margin-right: 20px;
 }
 
@@ -41,13 +39,14 @@
 }
 
 .status-message {
-    flex: 1;
+    flex: 10;
     display: flex;
     align-items: center;
-    justify-content: right; /* Centraliza o texto horizontalmente */
+    justify-content: flex-end; 
     text-align: center; /* Alinha o texto no centro */
     font-size: 56px;
     font-weight: bold;
+    margin-right: 20px;
 }
 
 /* Lista de componentes */
@@ -123,12 +122,13 @@
 
 /* Botão Ver Detalhes */
 .view-details-button {
+    font-weight: bold;
     background-color: #E0E0E0;
     color: #333;
     border: none;
-    border-radius: 15px;
-    padding: 8px 16px;
-    font-size: 0.9em;
+    border-radius: 30px;
+    padding: 4px 50px;
+    font-size: 0.8em;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -175,8 +175,8 @@
 
 /* LED de status na tabela */
 .status-led {
-    height: 14px;
-    width: 14px;
+    height: 36px;
+    width: 36px;
     border-radius: 50%;
     display: inline-block;
     margin-right: 8px;
@@ -192,7 +192,7 @@
 
 .status-button {
     position: relative;
-    top: 60px;
+    top: 90px;
 }
 
 /* Botão de histórico diferenciado */
@@ -333,7 +333,7 @@
     }
 
     .toggle-history-button {
-        padding: 15px 40px;
+        padding: 5px 80px;
         font-size: 20px;
     }
 }

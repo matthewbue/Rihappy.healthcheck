@@ -24,11 +24,11 @@
     <div class="components-list">
       <div *ngFor="let group of components" class="card">
         <div class="card-header">
-          <h3>{{ group.groupName }}</h3>
           <span class="status-led" [ngClass]="{'led-green': getGroupStatus(group) === 'Operational', 'led-red': getGroupStatus(group) !== 'Operational'}"></span>
-          <button class="view-details-button" (click)="openModal(group)">Ver Detalhes</button>
+          <h3>{{ group.groupName }}</h3>
+          <p><i class="fas fa-circle-notch"></i> <span style="font-weight: bold; color: black;">Status:</span> {{ getGroupStatus(group) }}</p>
+          <button class="view-details-button" (click)="openModal(group)">mais detalhes</button>
         </div>
-        <p><i class="fas fa-circle-notch"></i> Status: {{ getGroupStatus(group) }}</p>
       </div>
     </div>
   </div>
