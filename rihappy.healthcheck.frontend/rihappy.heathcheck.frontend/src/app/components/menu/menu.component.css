@@ -1,38 +1,60 @@
+/* Container principal do menu */
 .logo {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
 }
 
-.logo img {
-    height: 40px;
-    margin-right: 8px;
+/* Logo principal */
+.menu-logo {
+    height: 50px; /* Ajuste o tamanho do logo principal */
+    margin-right: 20px;
 }
 
-.logo span {
-    font-weight: bold;
-    color: #333;
-}
-
+/* Menu container para logos adicionais */
 .menu {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin-left: 800px; /* Empurra o menu para a direita */
+    gap: 20px; /* Espaçamento entre os itens do menu */
+    margin-left: auto;
 }
 
+/* Ícones do Google Cloud e VTEX */
 .menu-item {
     display: flex;
     align-items: center;
-    padding: 5px 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.menu-item:hover {
-    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .menu-item img {
-    height: 24px;
+    height: 24px; /* Altura dos logos menores */
     width: auto;
+    margin-left: 10px; /* Espaço entre logos adicionais */
+    transition: opacity 0.3s;
+}
+
+/* Efeito hover para logos do menu */
+.menu-item:hover img {
+    opacity: 0.8; /* Leve destaque no hover */
+}
+
+@media (max-width: 768px) {
+    .menu-logo {
+        height: 40px; /* Reduz o tamanho do logo principal em telas pequenas */
+    }
+
+    .menu-item img {
+        height: 20px; /* Reduz o tamanho dos logos menores */
+    }
+}
+
+@media (min-width: 1200px) {
+    .menu-logo {
+        height: 60px; /* Aumenta o tamanho do logo principal em telas grandes */
+    }
+
+    .menu-item img {
+        height: 30px; /* Aumenta o tamanho dos logos menores */
+    }
 }

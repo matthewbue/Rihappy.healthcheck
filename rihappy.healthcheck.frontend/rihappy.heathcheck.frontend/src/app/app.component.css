@@ -2,21 +2,18 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh; /* Garante que o contêiner ocupe pelo menos 100% da altura da viewport */
     font-family: 'Poppins', sans-serif;
-}
+    background-color: #fffbfb; /* ou a cor de fundo conforme o Figma */
 
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
 /* Header e menu */
-.header {
-    width: 100%;
-    height: 64px;
-    background-color: #F1F1F1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+
 
 .content {
     flex-grow: 1;
@@ -26,4 +23,46 @@
 
 .content.collapsed {
     margin-left: 80px;
+}
+/* Responsividade para telas menores */
+@media (max-width: 1200px) {
+    .status-message p {
+        font-size: 20px;
+    }
+    .toggle-history-button {
+        padding: 5px 60px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .status-message p {
+        font-size: 18px;
+    }
+    .platform-status {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .toggle-history-button {
+        margin-top: 10px;
+        padding: 5px 40px;
+    }
+    .components-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .status-message p {
+        font-size: 16px;
+    }
+    .status-logo .vtex-logo {
+        width: 150px;
+    }
+    .components-list {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 15px;
+    }
 }
