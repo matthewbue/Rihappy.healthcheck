@@ -52,8 +52,8 @@ export class StatusComponent {
             showTooltip: false // Estado inicial do tooltip
           }));
 
-        this.platformStatusDescription = this.ongoingIncidents.length > 0 
-          ? 'Alguns serviços VTEX estão apresentando problemas. Confira abaixo.' 
+        this.platformStatusDescription = this.ongoingIncidents.length > 0
+          ? 'Alguns serviços VTEX estão apresentando problemas. Confira abaixo.'
           : 'Os sistemas estão em pleno funcionamento 😃';
 
         this.addOngoingIncidentsToHistory();

@@ -1,60 +1,110 @@
 /* Container principal do menu */
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
 }
 
 /* Logo principal */
 .menu-logo {
-    height: 50px; /* Ajuste o tamanho do logo principal */
-    margin-right: 20px;
+  height: 50px; /* Tamanho do logo principal */
+  margin-right: 20px;
 }
 
-/* Menu container para logos adicionais */
+/* Menu container para as abas */
 .menu {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Espaçamento entre os itens do menu */
-    margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaçamento entre as abas */
+  margin-left: auto;
 }
 
-/* Ícones do Google Cloud e VTEX */
+/* Estilo das abas */
 .menu-item {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #e0e0e0; /* Fundo cinza claro para as abas */
+  border-radius: 15px 15px 0 0; /* Borda arredondada na parte superior */
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Ícones dentro das abas */
 .menu-item img {
-    height: 24px; /* Altura dos logos menores */
-    width: auto;
-    margin-left: 10px; /* Espaço entre logos adicionais */
-    transition: opacity 0.3s;
+  height: 24px; /* Tamanho dos logos dentro das abas */
+  width: auto;
 }
 
-/* Efeito hover para logos do menu */
-.menu-item:hover img {
-    opacity: 0.8; /* Leve destaque no hover */
+/* Aba ativa */
+.menu-item.active {
+  background-color: #ffffff; /* Fundo branco para aba ativa */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Sombra para a aba ativa */
 }
 
+/* Efeito hover nas abas */
+.menu-item:hover {
+  background-color: #d0d0d0; /* Escurece o fundo ao passar o mouse */
+}
+
+/* Estilo das abas com transição */
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #e0e0e0;
+  border-radius: 15px 15px 0 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+/* Aba ativa */
+.menu-item.active {
+  background-color: #ffffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de transição ao trocar de abas */
+.menu-item:not(.active) {
+  opacity: 0.5; /* Aba inativa fica mais transparente */
+}
+
+.menu-item.active {
+  opacity: 1; /* Aba ativa com opacidade total */
+}
+
+/* Fade-in effect */
+.menu-item.fade-enter-active,
+.menu-item.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.menu-item.fade-enter,
+.menu-item.fade-leave-to /* ou fade-exit */ {
+  opacity: 0;
+}
+
+
+/* Responsividade */
 @media (max-width: 768px) {
-    .menu-logo {
-        height: 40px; /* Reduz o tamanho do logo principal em telas pequenas */
-    }
+  .menu-logo {
+      height: 40px; /* Tamanho do logo em telas pequenas */
+  }
 
-    .menu-item img {
-        height: 20px; /* Reduz o tamanho dos logos menores */
-    }
+  .menu-item img {
+      height: 20px; /* Tamanho dos logos nas abas em telas pequenas */
+  }
 }
 
 @media (min-width: 1200px) {
-    .menu-logo {
-        height: 60px; /* Aumenta o tamanho do logo principal em telas grandes */
-    }
+  .menu-logo {
+      height: 60px; /* Aumenta o tamanho do logo em telas grandes */
+  }
 
-    .menu-item img {
-        height: 30px; /* Aumenta o tamanho dos logos menores */
-    }
+  .menu-item img {
+      height: 30px; /* Aumenta o tamanho dos logos nas abas em telas grandes */
+  }
 }

@@ -1,14 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Output, EventEmitter } from '@angular/core';
-import { StatusComponent } from "../panel-status/panel-status.component";
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css'],
-  imports: [CommonModule, StatusComponent, RouterLink]
+  imports: [CommonModule]
 })
 export class MenuComponent {
   isCollapsed = false;
@@ -17,8 +15,19 @@ export class MenuComponent {
 
   toggleMenu() {
     this.isCollapsed = !this.isCollapsed;
-    this.toggleCollapse.emit(this.isCollapsed); // Emitir o estado de colapso
+    this.toggleCollapse.emit(this.isCollapsed);
+  }
+
+  selectedPlatform = 'google-cloud';
+  transitioning = false;
+
+  setActivePlatform(platform: string) {
+    if (this.selectedPlatform !== platform) {
+      this.transitioning = true;
+      setTimeout(() => {
+        this.selectedPlatform = platform;
+        this.transitioning = false;
+      }, 300); // Define o tempo da transição para 300ms
+    }
   }
 }
-
-
