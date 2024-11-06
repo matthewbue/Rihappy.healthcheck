@@ -30,7 +30,7 @@
     width: 100%;
     background: linear-gradient(135deg, #67DA69, #2AA846);
     padding: 50px;
-    border-radius: 15px;
+    border-radius: 40px;
     color: white;
     box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
     font-size: 56px;
@@ -95,7 +95,14 @@
     margin-right: 10px;
     animation: led-pulse 1.5s infinite alternate;
 }
-
+.status-led-incident {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    animation: led-pulse 3s infinite alternate;
+}
 .led-green {
     background-color: #28a745;
 }
@@ -249,18 +256,27 @@
 
   /* Cartão de incidente */
   .incident-card {
-    background-color: #e0ffe0; /* Ajuste a cor de fundo */
-    border-left: 6px solid #28a745;
-    border-radius: 15px;
+    background-color: #FFE0B2; /* Ajuste a cor de fundo */
+    border-left: 6px solid #FFE0B2;
+    border-radius: 30px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    width: 380px; /* Largura fixa de 452px */
+    height: 180px; /* Altura fixa de 240px */
+    display: flex;
+    flex-direction: column;
+    
 }
-
+.status-incident-text {
+font-size: 80px;
+    
+}
   /* Incidente hover */
   .incident-card:hover {
     background-color: #ffccbc;
   }
+  
 
   /* Status dos incidentes */
   .incident-status {
@@ -269,12 +285,40 @@
   }
 
   /* Quando não há incidentes */
-  .no-incidents {
-    color: #4caf50;
-    font-weight: bold;
-    text-align: center;
+  .no-incidents-container {
+    display: flex;
+    flex-direction: column; /* Alinha os itens em uma coluna */
+    align-items: left;
+    justify-content: center;
+    background-color: #F9F1F1;
+    border-radius: 20px;
+    width: 100%;
+    height: 200px;
     margin-top: 20px;
 }
+
+.no-incidents-time {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    margin: 0;
+    text-align: left;
+}
+
+.no-incidents {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 53px;
+    line-height: 79.5px;
+    letter-spacing: -1.1%;
+    color: #000000;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: left;
+}
+
 
   /* Botão Ver Mais */
 .view-more-button {
@@ -319,6 +363,19 @@
     border-style: solid;
     border-color: transparent transparent #fff transparent;
   }
+
+  .status-background.degraded {
+    background: linear-gradient(135deg, #FF4131, #DB2314); /* Cor vermelha */
+}
+
+.status-message.degraded {
+    color: #FFF;
+}
+.card.degraded {
+    border-color: #dc3545;
+    box-shadow: 0px 0px 15px rgba(255, 69, 58, 0.6);
+}
+
 
 /* Ajustes para telas muito grandes (televisão) */
 @media (min-width: 1600px) {

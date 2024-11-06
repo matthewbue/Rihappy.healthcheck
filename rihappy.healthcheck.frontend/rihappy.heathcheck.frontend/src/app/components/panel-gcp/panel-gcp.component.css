@@ -1,88 +1,89 @@
-/* Container principal */
-.app-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    padding: 20px;
-}
 
-/* Menu lateral */
-app-menu {
-    width: 250px;
-    transition: width 0.3s ease;
-}
-
-/* Conteúdo principal */
-.content {
-    flex-grow: 1;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-}
-
-/* Classe aplicada quando o menu está colapsado */
-.content.collapsed {
-    margin-left: 80px;
-}
-
-/* Menu colapsado */
-app-menu.collapsed {
-    width: 80px;
-}
-
-/* Container de status */
 .status-container {
-    max-width: 100%;
-    padding: 40px;
-    background-color: #f8f9fa;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none; 
+    padding: 0; 
+    margin-top: 0; 
+  }us-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
 }
 
-/* Fundo do status */
+.status-logo .vtex-logo {
+    width: 250px;
+    margin-right: 20px;
+}
+
+.status-logo p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
 .status-background {
-    background: linear-gradient(135deg, #28a745, #6ddf6d);
-    padding: 40px;
-    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: linear-gradient(135deg, #67DA69, #2AA846);
+    padding: 50px;
+    border-radius: 40px;
     color: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    margin-bottom: 50px;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: 56px;
+    font-weight: bold;
+    box-sizing: border-box;
 }
 
-/* Seção dos componentes */
-.section-wrapper {
-    margin-top: 40px;
-    text-align: left;
+.status-message {
+    flex: 10;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    text-align: center; /* Alinha o texto no centro */
+    font-size: 56px;
+    font-weight: bold;
+    margin-right: 20px;
 }
 
 /* Lista de componentes */
 .components-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px; /* Aumentando o espaçamento entre os itens */
+    display: flex;
+    justify-content: flex-end; /* Alinha os cartões à direita */
+    gap: 20px; /* Espaçamento entre os cartões */
     padding: 30px;
+    flex-wrap: wrap; /* Permite que os cartões quebrem linha se necessário */
+}/* Cartões dos componentes */
+.card {
+    padding: 24px;
+    background: #FFFFFF;
+    border-radius: 50px;
+    border: 4px solid #2AA846;
+    box-shadow: 0px 0px 15px rgba(42, 168, 70, 0.6);
+    border-bottom-width: 20px;
+    width: 350px; /* Define um tamanho fixo para melhor alinhamento */
+
+    transition: transform 0.3s;
 }
 
-/* Cartões dos componentes */
-.card {
-    background: linear-gradient(145deg, #ffffff, #f3f6fa);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    text-align: left;
-    width: 100%;
-    max-width: 280px;
-    border-left: 5px solid transparent;
+.card h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+.card p {
+    font-size: 0.9em;
+    color: #666;
 }
 
 .card:hover {
     transform: translateY(-8px);
-    border-left: 5px solid #f86001;
-    transition: all 0.3s ease;
+    box-shadow: 0px 11px 0px 3px #2AA846;
+
 }
 
 /* Status LED */
@@ -94,7 +95,14 @@ app-menu.collapsed {
     margin-right: 10px;
     animation: led-pulse 1.5s infinite alternate;
 }
-
+.status-led-incident {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    animation: led-pulse 3s infinite alternate;
+}
 .led-green {
     background-color: #28a745;
 }
@@ -121,37 +129,44 @@ app-menu.collapsed {
 
 /* Botão Ver Detalhes */
 .view-details-button {
-    background-color: #256599;
-    color: white;
+    font-weight: bold;
+    background-color: #E0E0E0;
+    color: #333;
     border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    font-size: 14px;
+    border-radius: 30px;
+    padding: 4px 50px;
+    font-size: 0.8em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .view-details-button:hover {
-    background-color: #0056b3;
+    background-color: #cccccc;
 }
 
 .view-details-button:active {
     background-color: #00408a;
 }
 
+/* Descrição de erro para componentes degradados */
+.error-description {
+    color: #e53935;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 /* Tabela de histórico de incidentes */
 .incident-history-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 30px; /* Aumentando o espaçamento da tabela */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Adicionando uma sombra suave */
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    border-radius: 10px; /* Bordas arredondadas */
+    border-radius: 10px;
 }
 
 .incident-history-table th, .incident-history-table td {
-    padding: 15px; /* Aumentando o espaçamento nas células */
+    padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
@@ -167,8 +182,8 @@ app-menu.collapsed {
 
 /* LED de status na tabela */
 .status-led {
-    height: 14px;
-    width: 14px;
+    height: 36px;
+    width: 36px;
     border-radius: 50%;
     display: inline-block;
     margin-right: 8px;
@@ -182,57 +197,35 @@ app-menu.collapsed {
     background-color: #dc3545;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .platform-status h1 {
-        font-size: 32px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    .components-list {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    }
-
-    .incident-history-table th, .incident-history-table td {
-        padding: 10px;
-    }
+.status-button {
+    position: relative;
+    top: 90px;
 }
 
 /* Botão de histórico diferenciado */
 .toggle-history-button {
-    background: linear-gradient(145deg, #4c2889, #7647c6); /* Gradiente moderno */
+    background: none;
+    border: 2px solid white;
+    border-radius: 20px;
     color: white;
-    border: none;
-    border-radius: 50px; /* Formato de pílula para um visual moderno */
-    padding: 12px 25px;
+    padding: 8px 20px;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.7); /* Sombra neumórfica */
-    display: inline-flex;
-    align-items: center;
-    gap: 10px; /* Espaçamento entre o texto e o ícone */
-    font-family: 'Poppins', sans-serif; /* Fonte mais moderna */
+    transition: background-color 0.3s, color 0.3s;
+    align-self: flex-end; /* Alinha o botão mais para baixo */
+
 }
 
-/* Efeito de hover */
 .toggle-history-button:hover {
-    background: linear-gradient(145deg, #7647c6, #5f3aa7); /* Inverte o gradiente no hover */
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15), -4px -4px 10px rgba(255, 255, 255, 0.5); /* Leve redução na sombra */
-    transform: translateY(-2px); /* Leve elevação no hover */
+    background-color: #FFF;
+    color: #28a745;
 }
 
-/* Efeito de clique */
 .toggle-history-button:active {
-    background: linear-gradient(145deg, #2c1654, #5c35b1); /* Gradiente mais escuro no clique */
-    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.1); /* Sombra interna */
-    transform: translateY(0); /* Remove a elevação no clique */
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
 }
 
-/* Estilo do ícone dentro do botão */
 .toggle-history-button i {
     font-size: 18px;
     transition: transform 0.3s ease;
@@ -240,29 +233,257 @@ app-menu.collapsed {
 
 /* Animação para o ícone quando o histórico está visível */
 .toggle-history-button i.fa-chevron-up {
-    transform: rotate(180deg); /* Rotaciona a seta para cima quando o histórico está aberto */
+    transform: rotate(180deg);
 }
 
-/* Animação para o ícone quando o histórico está oculto */
 .toggle-history-button i.fa-chevron-down {
     transform: rotate(0deg);
 }
 
-/* Adicionando pulso ao botão quando o histórico está visível */
 .toggle-history-button.pulse {
     animation: pulse 1.5s infinite;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
+/* Estilo para o título da seção */
+.section-wrapper h2 {
+    color: #10100f;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Cartão de incidente */
+  .incident-card {
+    background-color: #FFE0B2; /* Ajuste a cor de fundo */
+    border-left: 6px solid #FFE0B2;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 380px; /* Largura fixa de 452px */
+    height: 180px; /* Altura fixa de 240px */
+    display: flex;
+    flex-direction: column;
+    
+}
+.status-incident-text {
+font-size: 80px;
+    
+}
+  /* Incidente hover */
+  .incident-card:hover {
+    background-color: #ffccbc;
+  }
+  
+
+  /* Status dos incidentes */
+  .incident-status {
+    color: #ff5722;
+    font-weight: bold;
+  }
+
+  /* Quando não há incidentes */
+  .no-incidents-container {
+    display: flex;
+    flex-direction: column; /* Alinha os itens em uma coluna */
+    align-items: left;
+    justify-content: center;
+    background-color: #F9F1F1;
+    border-radius: 20px;
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.no-incidents-time {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    margin: 0;
+    text-align: left;
+}
+
+.no-incidents {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 53px;
+    line-height: 79.5px;
+    letter-spacing: -1.1%;
+    color: #000000;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: left;
+}
+
+
+  /* Botão Ver Mais */
+.view-more-button {
+    background: none;
+    border: none;
+    color: #256599;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+
+  .view-more-button:hover {
+    color: #00408a;
+  }
+
+  /* Tooltip Estiloso */
+  .tooltip {
+    position: absolute;
+    background-color: #fff;
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    white-space: normal;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+  }
+
+  .status-background.degraded {
+    background: linear-gradient(135deg, #FF4131, #DB2314); /* Cor vermelha */
+}
+
+.status-message.degraded {
+    color: #FFF;
+}
+.card.degraded {
+    border-color: #dc3545;
+    box-shadow: 0px 0px 15px rgba(255, 69, 58, 0.6);
+}
+
+
+/* Ajustes para telas muito grandes (televisão) */
+@media (min-width: 1600px) {
+    .status-background {
+        font-size: 48px;
+        padding: 60px;
     }
-    50% {
-        transform: scale(1.05); /* O botão cresce ligeiramente */
+
+    .card {
+        padding: 30px;
+        font-size: 1.5em;
     }
-    100% {
-        transform: scale(1);
+
+    .toggle-history-button {
+        padding: 5px 80px;
+        font-size: 20px;
     }
 }
+
+/* Ajustes para telas médias */
+@media (max-width: 1200px) {
+    .status-message {
+        font-size: 32px;
+    }
+
+    .toggle-history-button {
+        padding: 5px 60px;
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 768px) {
+    .platform-status {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .status-message {
+        font-size: 24px;
+    }
+
+    .components-list {
+        display: flex;
+        justify-content: flex-end; /* Alinha os cartões à direita */
+        gap: 20px; /* Espaçamento entre os cartões */
+        padding: 30px;
+    }
+
+    .toggle-history-button {
+        margin-top: 10px;
+    }
+
+    /* Contêiner de abas */
+.platform-tabs {
+  display: flex;
+  gap: 10px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo das abas */
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* Google Cloud Tab */
+.google-cloud-tab {
+  background-color: #ffffff;
+}
+
+/* VTEX Tab */
+.vtex-tab {
+  background-color: #e6e6e6;
+}
+
+/* Estilo da aba ativa */
+.tab.active {
+  background-color: #ffffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo e texto das abas */
+.tab img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.tab span {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+}
+
+
+
 
 

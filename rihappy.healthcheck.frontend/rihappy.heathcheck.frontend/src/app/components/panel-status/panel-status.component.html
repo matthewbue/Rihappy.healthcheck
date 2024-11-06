@@ -2,17 +2,17 @@
 	<div class="status-container">
 		<!-- Status principal da plataforma -->
 		<div class="platform-status">
-			<div class="status-background">
+			<div class="status-background" [ngClass]="{'degraded': hasDegradedComponents()}">
 				<div class="status-logo">
 					<img src="../../union.svg" alt="Logo" class="vtex-logo">
 				</div>
 				<div class="status-message">
-					<p>Os sistemas estão em pleno funcionamento <span class="emoji">😃</span></p>
+					<p>{{ platformStatusDescription }}</p>
 				</div>
 				<div class="status-button">
 					<button class="toggle-history-button" (click)="toggleIncidentHistory()">
 						<i class="fas"
-							[ngClass]="{'fa-chevron-up': showIncidentHistory, 'fa-chevron-down': !showIncidentHistory}"></i>
+						   [ngClass]="{'fa-chevron-up': showIncidentHistory, 'fa-chevron-down': !showIncidentHistory}"></i>
 						{{ showIncidentHistory ? 'Esconder Histórico' : 'Histórico' }}
 					</button>
 				</div>
@@ -23,7 +23,7 @@
   <div class="section-wrapper">
     <h2><i class="fas fa-cogs"></i> Componentes do Sistema</h2>
     <div class="components-list">
-      <div *ngFor="let group of components" class="card">
+      <div *ngFor="let group of components" class="card" [ngClass]="{'degraded': getGroupStatus(group) !== 'Operational'}">
         <div class="card-header">
           <span class="status-led" [ngClass]="{'led-green': getGroupStatus(group) === 'Operational', 'led-red': getGroupStatus(group) !== 'Operational'}"></span>
           <h3>{{ group.groupName }}</h3>
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 		<!-- Incidentes em Andamento -->
 		<div class="section-wrapper">
@@ -40,19 +40,26 @@
 			<div *ngIf="ongoingIncidents.length > 0; else noIncidents">
 				<div class="components-list">
 					<div *ngFor="let incident of ongoingIncidents" class="incident-card">
+						
+
 						<div class="card-header">
-							<h3>{{ incident.name }}</h3>
-							<span class="status-led"
-								[ngClass]="{'led-green': incident.status === 'Operational', 'led-red': incident.status !== 'Operational'}"></span>
+							<p><i class="fas fa-clock"></i> 🕛{{ incident.lastUpdate | date: 'dd/MM/yyyy | HH:mm' }}</p>
+							<h1>{{ incident.name }}</h1>
+							
+							<h3>🔴 Status: {{ incident.status }}</h3>
 						</div>
-						<p><i class="fas fa-exclamation-circle"></i> Status: {{ incident.status }}</p>
-						<p><i class="fas fa-clock"></i> Última Atualização: {{ incident.lastUpdate | date: 'dd/MM/yyyy HH:mm' }}</p>
-					</div>
+						</div>
+				
 				</div>
 			</div>
 			<ng-template #noIncidents>
-				<p class="no-incidents"><i class="fas fa-check-circle"></i> Não há incidentes em andamento no momento.</p>
+				<div class="no-incidents-container">
+					<p class="no-incidents-time">🕛 {{ datenow | date: 'dd/MM/yyyy | HH:mm' }}</p>
+					<p class="no-incidents"><i class="fas fa-check-circle"></i> Oba! Não tem nenhum incidente em andamento no momento...</p>
+				</div>
 			</ng-template>
+			
+			
 		</div>
 
 		<!-- Histórico de Incidentes -->

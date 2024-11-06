@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 // Interface para tipar a resposta da API
 export interface Component {
@@ -17,8 +17,9 @@ export interface Group {
 export interface HealthStatusResponse {
   categoryName: string;
   components: Group[];
-}
+  status: string;
 
+}
 @Injectable({
   providedIn: 'root',
   
@@ -26,10 +27,34 @@ export interface HealthStatusResponse {
 export class HealthStatusService {
 
   private apiUrl = 'https://localhost:7233/api/Health/status';
-
+  private apiUrlAccount = 'https://api-superapp.gruporihappy.com.br/api/Checkout/hc';
   constructor(private http: HttpClient) { }
 
   getHealthStatus(): Observable<HealthStatusResponse> {
     return this.http.get<HealthStatusResponse>(this.apiUrl);
   }
+  getHealthSuperAppAccount(): Observable<HealthStatusResponse> {
+    return this.http.get<any>(this.apiUrlAccount).pipe(
+      map((data) => {
+        // Mapeia a resposta da API para o formato esperado
+        const components = Object.keys(data.entries).map((key) => ({
+          name: key,
+          description: data.entries[key].description || '',
+          status: data.entries[key].status,
+        }));
+
+        return {
+          categoryName: data.status === 'Healthy' ? 'Sistema em funcionamento' : 'Problemas no sistema',
+          status: data.status,
+          components: [
+            {
+              groupName: 'Status Geral',
+              components,
+            },
+          ],
+        };
+      })
+    );
+  }
 }
+

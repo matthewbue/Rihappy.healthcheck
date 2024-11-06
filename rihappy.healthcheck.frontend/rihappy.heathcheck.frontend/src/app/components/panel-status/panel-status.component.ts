@@ -17,7 +17,8 @@ export class StatusComponent {
   components: Group[] = [];
   ongoingIncidents: any[] = [];
   showIncidentHistory = false;
-
+   dataAtual = new Date();
+  datenow = this.dataAtual.toLocaleDateString('pt-BR');;
   // Modal variables
   isModalVisible: boolean = false;
   selectedGroupName: string = '';
@@ -37,33 +38,37 @@ export class StatusComponent {
 
   fetchStatus(): void {
     this.statusService.getHealthStatus().subscribe(
-      (data: HealthStatusResponse) => {
-        this.components = data.components;
-        this.platformStatus = data.categoryName;
+        (data: HealthStatusResponse) => {
+            this.components = data.components;
+            this.platformStatus = data.categoryName;
 
-        this.ongoingIncidents = data.components
-          .flatMap(group => group.components)
-          .filter(component => component.status !== 'Operational')
-          .map(component => ({
-            name: component.name,
-            status: component.status,
-            lastUpdate: new Date(),
-            description: component.description || 'Descrição não disponível',
-            showTooltip: false // Estado inicial do tooltip
-          }));
+            const hasDegradedComponents = data.components.some(group => 
+                group.components.some(component => component.status === 'Degraded')
+            );
 
-        this.platformStatusDescription = this.ongoingIncidents.length > 0
-          ? 'Alguns serviços VTEX estão apresentando problemas. Confira abaixo.'
-          : 'Os sistemas estão em pleno funcionamento 😃';
+            this.ongoingIncidents = data.components
+                .flatMap(group => group.components)
+                .filter(component => component.status !== 'Operational')
+                .map(component => ({
+                    name: component.name,
+                    status: component.status,
+                    lastUpdate: new Date(),
+                    description: component.description || 'Descrição não disponível',
+                    showTooltip: false
+                }));
 
-        this.addOngoingIncidentsToHistory();
-      },
-      (error) => {
-        console.error('Erro ao buscar status:', error);
-        this.platformStatusDescription = 'Não foi possível verificar o status dos sistemas.';
-      }
+            this.platformStatusDescription = hasDegradedComponents
+                ? 'Alguns serviços estão apresentando problemas ⚠️'
+                : 'Os sistemas estão em pleno funcionamento 😃';
+
+            this.addOngoingIncidentsToHistory();
+        },
+        (error) => {
+            console.error('Erro ao buscar status:', error);
+            this.platformStatusDescription = 'Não foi possível verificar o status dos sistemas.';
+        }
     );
-  }
+}
 
   addOngoingIncidentsToHistory(): void {
     this.ongoingIncidents.forEach(incident => {
@@ -90,6 +95,11 @@ export class StatusComponent {
     const allOperational = group.components.every(comp => comp.status === 'Operational');
     return allOperational ? 'Operational' : 'Degraded';
   }
+  hasDegradedComponents(): boolean {
+    return this.components.some(group => 
+        group.components.some(component => component.status === 'Degraded')
+    );
+}
 
   openModal(group: Group): void {
     this.selectedGroupName = group.groupName;
