@@ -17,27 +17,39 @@
 .menu {
   display: flex;
   align-items: center;
-  gap: 10px; /* Espaçamento entre as abas */
-  margin-left: auto;
+  gap: 8px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
 }
 
 /* Estilo das abas */
 .menu-item {
   display: flex;
   align-items: center;
-  padding: 8px 16px;
-  background-color: #e0e0e0; /* Fundo cinza claro para as abas */
-  border-radius: 15px 15px 0 0; /* Borda arredondada na parte superior */
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  border-radius: 16px 132px 0 0; /* Bordas arredondadas diferentes para o topo */
   text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 16px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* Aba ativa */
+.menu-item.active {
+  background-color: #ffffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  border-radius: 16px 132px 0 0;
 }
 
 /* Ícones dentro das abas */
 .menu-item img {
-  height: 24px; /* Tamanho dos logos dentro das abas */
-  width: auto;
+  height: 24px;
+  margin-right: 8px;
 }
-
 /* Aba ativa */
 .menu-item.active {
   background-color: #ffffff; /* Fundo branco para aba ativa */

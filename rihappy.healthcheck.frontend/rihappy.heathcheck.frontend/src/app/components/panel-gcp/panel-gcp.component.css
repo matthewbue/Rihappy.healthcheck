@@ -52,7 +52,7 @@
 /* Lista de componentes */
 .components-list {
     display: flex;
-    justify-content: flex-end; /* Alinha os cartões à direita */
+    justify-content: flex-start; /* Alinha os cartões à direita */
     gap: 20px; /* Espaçamento entre os cartões */
     padding: 30px;
     flex-wrap: wrap; /* Permite que os cartões quebrem linha se necessário */

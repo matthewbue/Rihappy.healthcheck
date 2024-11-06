@@ -10,7 +10,12 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class MenuComponent {
   isCollapsed = false;
+  activeTab: string = 'status'; // Define a aba ativa inicial
 
+  setActiveTab(tab: string) {
+    console.log(tab)
+    this.activeTab = tab;
+  }
   @Output() toggleCollapse = new EventEmitter<boolean>();
 
   toggleMenu() {
