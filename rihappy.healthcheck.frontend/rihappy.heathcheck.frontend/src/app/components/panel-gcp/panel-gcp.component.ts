@@ -88,7 +88,7 @@ export class PanelGcpComponent {
     // Descrição do status da plataforma
     this.platformStatusDescription = hasDegradedComponents
         ? 'Alguns serviços estão apresentando problemas ⚠️'
-        : 'O SuperApp esta em pleno funcionamento 😃';
+        : 'Os sistemas estão em pleno funcionamento 😃';
 
     // Simulação de histórico de incidentes (opcional)
     this.addOngoingIncidentsToHistory();

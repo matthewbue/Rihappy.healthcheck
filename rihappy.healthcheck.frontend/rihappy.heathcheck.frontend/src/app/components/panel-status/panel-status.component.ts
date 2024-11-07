@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from '../../modal/modal.component';
 import { HealthStatusService, Group, HealthStatusResponse } from '../../services/health-status.service';
@@ -11,9 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./panel-status.component.css'],
   imports: [CommonModule, ModalComponent, HttpClientModule]
 })
-export class StatusComponent {
+export class StatusComponent implements OnInit, OnDestroy{
   platformStatus: string = 'VTEX';
   platformStatusDescription: string = 'Os sistemas estão em pleno funcionamento 😃';
+  private intervalId: any;
   components: Group[] = [];
   ongoingIncidents: any[] = [];
   showIncidentHistory = false;
@@ -33,7 +34,12 @@ export class StatusComponent {
   constructor(private statusService: HealthStatusService) {}
 
   ngOnInit(): void {
-    this.fetchStatus();
+    this.fetchStatus(); //faz a chamada inicial
+    this.startAutoRefresh(); //inicia o intervalo de atualização
+  }
+
+  ngOnDestroy(): void{
+    clearInterval(this.intervalId); // Limpa o intervalo ao destruir o componente 
   }
 
   fetchStatus(): void {
@@ -70,6 +76,26 @@ export class StatusComponent {
     );
 }
 
+// Inicia o intervalo de atualização automática
+startAutoRefresh(): void {
+  this.intervalId = setInterval(() => {
+    this.fetchStatus(); // Faz a chamada à API
+  }, 30000); // 30 segundos
+}
+
+  // Verifica se há problemas nos componentes
+  private checkForIssues(data: HealthStatusResponse): boolean {
+    return data.components.some(group =>
+      group.components.some(component => component.status === 'Degraded')
+    );
+  }
+
+  // Método `trackBy` para otimizar a renderização do loop *ngFor
+  trackByGroup(index: number, group: any): string {
+    return group.groupName; // Identifica cada grupo de forma única
+  }
+
+
   addOngoingIncidentsToHistory(): void {
     this.ongoingIncidents.forEach(incident => {
       const existsInHistory = this.incidentHistory.some(
@@ -99,7 +125,7 @@ export class StatusComponent {
     return this.components.some(group => 
         group.components.some(component => component.status === 'Degraded')
     );
-}
+  }
 
   openModal(group: Group): void {
     this.selectedGroupName = group.groupName;
