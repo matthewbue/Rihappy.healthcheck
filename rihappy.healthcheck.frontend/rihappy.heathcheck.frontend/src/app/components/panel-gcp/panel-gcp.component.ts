@@ -19,15 +19,14 @@ export class PanelGcpComponent {
   showIncidentHistory = false;
    dataAtual = new Date();
   datenow = this.dataAtual.toLocaleDateString('pt-BR');;
-  // Modal variables
+  
   isModalVisible: boolean = false;
   selectedGroupName: string = '';
   selectedComponents: any[] = [];
 
-  // Sample incident history
+  
   incidentHistory = [
     { date: '2024-10-25', name: 'Cloud provider issue causing elevated 5xx errors', status: 'Resolved', description: 'This incident was caused by a cloud provider issue affecting stores in Argentina. It was resolved after 26 minutes.' },
-    // Additional historical incidents...
   ];
 
   constructor(private statusService: HealthStatusService) {}
@@ -37,7 +36,6 @@ export class PanelGcpComponent {
   }
 
   fetchStatus(): void {
-    // Dados mockados em vez da chamada ao backend
     this.components = [
         {
             groupName: 'Checkout',
@@ -65,15 +63,12 @@ export class PanelGcpComponent {
         }
     ];
 
-    // Definindo a variável `platformStatus`
-    this.platformStatus = 'Google Cloud'; // Ou qualquer outro nome de plataforma que desejar
+    this.platformStatus = 'Google Cloud'; 
 
-    // Verificando se há componentes degradados (simulação)
     const hasDegradedComponents = this.components.some(group =>
         group.components.some(component => component.status === 'Degraded')
     );
 
-    // Simulando a lista de incidentes em andamento
     this.ongoingIncidents = this.components
         .flatMap(group => group.components)
         .filter(component => component.status !== 'Operational')
@@ -85,12 +80,10 @@ export class PanelGcpComponent {
             showTooltip: false
         }));
 
-    // Descrição do status da plataforma
     this.platformStatusDescription = hasDegradedComponents
         ? 'Alguns serviços estão apresentando problemas ⚠️'
         : 'Os sistemas estão em pleno funcionamento 😃';
 
-    // Simulação de histórico de incidentes (opcional)
     this.addOngoingIncidentsToHistory();
 }
 
@@ -111,7 +104,6 @@ export class PanelGcpComponent {
     });
   }
 
-  // Alterna o estado do tooltip para exibir/esconder
   toggleTooltip(incident: any): void {
     incident.showTooltip = !incident.showTooltip;
   }

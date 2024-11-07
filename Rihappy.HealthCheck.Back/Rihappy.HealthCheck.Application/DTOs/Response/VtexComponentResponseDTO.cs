@@ -8,8 +8,7 @@ namespace Rihappy.HealthCheck.Application.DTOs.Response
 {
     public class VtexComponentResponseDTO
     {
-        public string Name { get; set; }
-        public string Status { get; set; }
+        public string? Name { get; set; }
+        public string? Status { get; set; }
     }
-
 }

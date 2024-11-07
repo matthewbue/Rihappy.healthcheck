@@ -75,73 +75,90 @@ namespace Rihappy.HealthCeck.API.Mapping
             return vtexStatusDto;
         }
 
-
-        public StatusResponseDTO MapSuperAppToDto(HealthSuperApp healthSuperApp)
+        private string InferComponentStatus(VtexStatus vtexStatus, string componentId)
         {
-            var statusResponseDto = new StatusResponseDTO
+            if (vtexStatus.Summary.ScheduledMaintenances != null)
             {
-                Status = healthSuperApp.Status,
-                TotalDuration = healthSuperApp.TotalDuration,
-                Entries = healthSuperApp.Entries.ToDictionary(
-                    entry => entry.Key,
-                    entry => new EntryDto
-                    {
-                        //Data = entry.Value.Data as Dictionary<string, List<List<object>>>,
-                        Duration = entry.Value.Duration,
-                        Status = entry.Value.Status,
-                        Description = entry.Value.Description,
-                        Tags = entry.Value.Tags
-                    })
-            };
+                var maintenance = vtexStatus.Summary.ScheduledMaintenances
+                    .FirstOrDefault(m => m.Components != null &&
+                        m.Components.Any(c => c.ComponentId == componentId));
 
-            return statusResponseDto;
-        }
-
-        
-     private string InferComponentStatus(VtexStatus vtexStatus, string componentId)
-{
-    if (vtexStatus.Summary.ScheduledMaintenances != null)
-    {
-        var maintenance = vtexStatus.Summary.ScheduledMaintenances
-            .FirstOrDefault(m => m.Components != null &&
-                m.Components.Any(c => c.ComponentId == componentId));
-
-        if (maintenance != null)
-        {
-            return "Under Maintenance";
-        }
-    }
-
-    if (vtexStatus.Summary.AffectedComponents != null)
-    {
-        var affectedComponent = vtexStatus.Summary.AffectedComponents
-            .FirstOrDefault(c => c.ComponentId == componentId);
-
-        if (affectedComponent != null)
-        {
-            return affectedComponent.Status == "partial_outage" ? "Degraded" : affectedComponent.Status;
-        }
-    }
-
-    string worstStatus = "Operational"; 
-    if (vtexStatus.Summary.OngoingIncidents != null)
-    {
-        foreach (var incident in vtexStatus.Summary.OngoingIncidents)
-        {
-            if (incident.ComponentImpacts != null)
-            {
-                foreach (var impact in incident.ComponentImpacts.Where(impact => impact.ComponentId == componentId))
+                if (maintenance != null)
                 {
-                    if (impact.Status == "full_outage") return "Full Outage";
-                    if (impact.Status == "partial_outage" || impact.Status == "degraded") worstStatus = "Degraded";
+                    return "Under Maintenance";
                 }
             }
+
+            if (vtexStatus.Summary.AffectedComponents != null)
+            {
+                var affectedComponent = vtexStatus.Summary.AffectedComponents
+                    .FirstOrDefault(c => c.ComponentId == componentId);
+
+                if (affectedComponent != null)
+                {
+                    return affectedComponent.Status == "partial_outage" ? "Degraded" : affectedComponent.Status;
+                }
+            }
+
+            string worstStatus = "Operational";
+            if (vtexStatus.Summary.OngoingIncidents != null)
+            {
+                foreach (var incident in vtexStatus.Summary.OngoingIncidents)
+                {
+                    if (incident.ComponentImpacts != null)
+                    {
+                        foreach (var impact in incident.ComponentImpacts.Where(impact => impact.ComponentId == componentId))
+                        {
+                            if (impact.Status == "full_outage") return "Full Outage";
+                            if (impact.Status == "partial_outage" || impact.Status == "degraded") worstStatus = "Degraded";
+                        }
+                    }
+                }
+            }
+            return worstStatus;
         }
-    }
-    return worstStatus;
-}
 
+        public VtexStatusResponseDTO MapSuperAppToDto(HealthSuperApp healthSuperApp)
+        {
+            var vtexStatusResponseDto = new VtexStatusResponseDTO
+            {
+                CategoryName = healthSuperApp.CategoryName,
+                Components = new List<CategoryComponentsDto>()
+            };
 
+            foreach (var entry in healthSuperApp.Entries)
+            {
+                var categoryComponent = new CategoryComponentsDto
+                {
+                    GroupName = entry.Key,
+                    Components = new List<ComponentDto>()
+                };
+
+                if (entry.Value.Data != null)
+                {
+                    foreach (var componentEntry in entry.Value.Data)
+                    {
+                        var component = new ComponentDto
+                        {
+                            Name = componentEntry.Key,
+                            Description = (componentEntry.Value as EndpointData)?.Description ?? string.Empty,
+                            Status = (componentEntry.Value as EndpointData)?.Status ?? "Unknown"
+                        };
+
+                        categoryComponent.Components.Add(component);
+                    }
+                }
+
+                vtexStatusResponseDto.Components.Add(categoryComponent);
+            }
+
+            return vtexStatusResponseDto;
+        }
+
+        public List<VtexStatusResponseDTO> MapSuperAppListToDtoList(List<HealthSuperApp> superApps)
+        {
+            return superApps.Select(healthSuperApp => MapSuperAppToDto(healthSuperApp)).ToList();
+        }
 
         public List<VtexIncindentResponseDTO> MapIncidentToDto(List<Incident> incidents)
         {

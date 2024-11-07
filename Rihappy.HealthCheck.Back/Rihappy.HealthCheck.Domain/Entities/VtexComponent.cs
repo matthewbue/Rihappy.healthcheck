@@ -15,20 +15,20 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public class IncidentLink
         {
             public DateTime PublishedAt { get; set; }
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public string Status { get; set; }
-            public string Permalink { get; set; }
+            public string? Id { get; set; }
+            public string? Name { get; set; }
+            public string? Status { get; set; }
+            public string? Permalink { get; set; }
         }
 
         public class ComponentImpact
         {
             public DateTime StartAt { get; set; }
             public DateTime EndAt { get; set; }
-            public string Id { get; set; }
-            public string ComponentId { get; set; }
-            public string StatusPageIncidentId { get; set; }
-            public string Status { get; set; }
+            public string? Id { get; set; }
+            public string? ComponentId { get; set; }
+            public string? StatusPageIncidentId { get; set; }
+            public string? Status { get; set; }
         }
 
         public class ComponentUptime

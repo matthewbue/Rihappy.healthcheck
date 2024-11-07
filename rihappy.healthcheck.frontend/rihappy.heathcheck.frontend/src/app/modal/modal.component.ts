@@ -14,6 +14,6 @@ export class ModalComponent {
   @Output() close = new EventEmitter<void>();
 
   closeModal() {
-    this.close.emit();  // Emite o evento de fechar o modal
+    this.close.emit();
   }
 }

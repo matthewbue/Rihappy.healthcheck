@@ -10,9 +10,10 @@ namespace Rihappy.HealthCheck.Data.Rest.Data
 {
     public class HealthDbContext : DbContext
     {
-        public HealthDbContext(DbContextOptions<HealthDbContext> options) : base(options) 
+        public HealthDbContext(DbContextOptions<HealthDbContext> options) : base(options)
         {
         }
-            public DbSet<Health> Healths { get; set; }
+
+        public DbSet<Health> Healths { get; set; }
     }
 }

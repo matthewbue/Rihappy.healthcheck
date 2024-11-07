@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Rihappy.HealthCheck.Application.Interface.Service;
 
 namespace Rihappy.HealthCeck.API.Controllers

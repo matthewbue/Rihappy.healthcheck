@@ -10,7 +10,9 @@ namespace Rihappy.HealthCheck.Domain.Interface.Repositories
     public interface IHealthRepository
     {
         Task<VtexIncident> GetIncidentsAsync(DateTime startAt, DateTime endAt);
+
         Task<VtexStatus> GetStatusAsync();
+
         Task<VtexComponent> GetComponentImpactsAsync(DateTime startAt, DateTime endAt);
     }
 }

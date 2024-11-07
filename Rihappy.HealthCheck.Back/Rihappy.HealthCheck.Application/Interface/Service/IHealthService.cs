@@ -11,7 +11,9 @@ namespace Rihappy.HealthCheck.Application.Interface.Service
     public interface IHealthService
     {
         Task<List<VtexIncindentResponseDTO>> GetIncidentsAsync(DateTime startAt, DateTime endAt);
+
         Task<VtexStatusResponseDTO> GetStatusAsync();
+
         Task<VtexComponent> GetComponentImpactsAsync(DateTime startAt, DateTime endAt);
     }
 }

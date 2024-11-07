@@ -20,26 +20,24 @@ export class StatusComponent implements OnInit, OnDestroy{
   showIncidentHistory = false;
    dataAtual = new Date();
   datenow = this.dataAtual.toLocaleDateString('pt-BR');;
-  // Modal variables
+  
   isModalVisible: boolean = false;
   selectedGroupName: string = '';
   selectedComponents: any[] = [];
 
-  // Sample incident history
   incidentHistory = [
     { date: '2024-10-25', name: 'Cloud provider issue causing elevated 5xx errors', status: 'Resolved', description: 'This incident was caused by a cloud provider issue affecting stores in Argentina. It was resolved after 26 minutes.' },
-    // Additional historical incidents...
   ];
 
   constructor(private statusService: HealthStatusService) {}
 
   ngOnInit(): void {
-    this.fetchStatus(); //faz a chamada inicial
-    this.startAutoRefresh(); //inicia o intervalo de atualização
+    this.fetchStatus(); 
+    this.startAutoRefresh(); 
   }
 
   ngOnDestroy(): void{
-    clearInterval(this.intervalId); // Limpa o intervalo ao destruir o componente 
+    clearInterval(this.intervalId); 
   }
 
   fetchStatus(): void {
@@ -76,25 +74,21 @@ export class StatusComponent implements OnInit, OnDestroy{
     );
 }
 
-// Inicia o intervalo de atualização automática
 startAutoRefresh(): void {
   this.intervalId = setInterval(() => {
-    this.fetchStatus(); // Faz a chamada à API
-  }, 30000); // 30 segundos
+    this.fetchStatus(); 
+  }, 30000); 
 }
 
-  // Verifica se há problemas nos componentes
   private checkForIssues(data: HealthStatusResponse): boolean {
     return data.components.some(group =>
       group.components.some(component => component.status === 'Degraded')
     );
   }
 
-  // Método `trackBy` para otimizar a renderização do loop *ngFor
   trackByGroup(index: number, group: any): string {
-    return group.groupName; // Identifica cada grupo de forma única
+    return group.groupName;
   }
-
 
   addOngoingIncidentsToHistory(): void {
     this.ongoingIncidents.forEach(incident => {
@@ -113,7 +107,6 @@ startAutoRefresh(): void {
     });
   }
 
-  // Alterna o estado do tooltip para exibir/esconder
   toggleTooltip(incident: any): void {
     incident.showTooltip = !incident.showTooltip;
   }

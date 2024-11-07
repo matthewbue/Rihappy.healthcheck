@@ -1,18 +1,16 @@
-/* Fundo escuro da modal */
 .modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com opacidade */
+    background-color: rgba(0, 0, 0, 0.7); 
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
   }
   
-  /* Estilo principal da modal */
   .modal {
     background-color: #fff;
     border-radius: 10px;
@@ -20,11 +18,10 @@
     width: 600px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     animation: modal-fade-in 0.4s ease;
-    max-height: 80vh; /* Altura máxima para manter responsivo */
-    overflow-y: auto; /* Scroll caso necessário */
+    max-height: 80vh; 
+    overflow-y: auto; 
   }
   
-  /* Cabeçalho da modal */
   .modal-header {
     display: flex;
     justify-content: space-between;
@@ -34,14 +31,12 @@
     margin-bottom: 20px;
   }
   
-  /* Estilo do título */
   .modal-header h2 {
     margin: 0;
-    color: #007bff; /* Cor azul moderna */
+    color: #007bff; 
     font-size: 22px;
   }
   
-  /* Botão de fechar */
   .close-button {
     background: transparent;
     border: none;
@@ -54,12 +49,10 @@
     color: #007bff;
   }
   
-  /* Corpo da modal */
   .modal-body {
     padding-right: 10px;
   }
   
-  /* Estilo de cada componente no modal */
   .component {
     margin-bottom: 20px;
     padding: 15px;
@@ -69,13 +62,11 @@
     transition: all 0.3s ease;
   }
   
-  /* Ao passar o mouse, destaque o cartão do componente */
   .component:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
-  /* Estilo do título do componente */
   .component h3 {
     margin: 0 0 5px;
     font-size: 20px;
@@ -84,20 +75,17 @@
     align-items: center;
   }
   
-  /* Descrição do componente */
   .component-description {
     margin: 5px 0 10px;
     color: #666;
     font-size: 16px;
   }
   
-  /* Status do componente */
   .component-status {
     font-size: 16px;
     color: #555;
   }
   
-  /* LED de status */
   .status-led {
     height: 14px;
     width: 14px;
@@ -107,18 +95,15 @@
     vertical-align: middle;
   }
   
-  /* LED verde com animação de pulsação */
   .led-green {
     background-color: #28a745;
     animation: led-pulse 1.5s infinite alternate;
   }
   
-  /* LED vermelho */
   .led-red {
     background-color: #dc3545;
   }
   
-  /* Animação de piscar o LED */
   @keyframes led-pulse {
     0% {
       box-shadow: 0 0 5px rgba(40, 167, 69, 0.7);
@@ -128,7 +113,6 @@
     }
   }
   
-  /* Animação de entrada suave do modal */
   @keyframes modal-fade-in {
     from {
       opacity: 0;
@@ -140,10 +124,9 @@
     }
   }
   
-  /* Responsividade para dispositivos móveis */
   @media (max-width: 768px) {
     .modal {
-      width: 90%; /* Torna a modal mais responsiva */
+      width: 90%; 
       padding: 20px;
     }
   

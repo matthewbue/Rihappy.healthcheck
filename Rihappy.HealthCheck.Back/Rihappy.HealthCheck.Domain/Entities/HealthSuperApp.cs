@@ -6,11 +6,13 @@ namespace Rihappy.HealthCheck.Domain.Entities
 {
     public class HealthSuperApp
     {
+        public string? CategoryName { get; set; }
+
         [JsonProperty("status")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         [JsonProperty("totalDuration")]
-        public string TotalDuration { get; set; }
+        public string? TotalDuration { get; set; }
 
         [JsonProperty("entries")]
         public Dictionary<string, HealthEntry> Entries { get; set; }
@@ -19,16 +21,16 @@ namespace Rihappy.HealthCheck.Domain.Entities
     public class HealthEntry
     {
         [JsonProperty("data")]
-        public Dictionary<string, object> Data { get; set; } // Alterado para Dictionary<string, object> para aceitar qualquer tipo de dado
+        public Dictionary<string, object> Data { get; set; } 
 
         [JsonProperty("duration")]
-        public string Duration { get; set; }
+        public string? Duration { get; set; }
 
         [JsonProperty("status")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [JsonProperty("tags")]
         public List<string> Tags { get; set; }
@@ -37,9 +39,9 @@ namespace Rihappy.HealthCheck.Domain.Entities
     public class EndpointData
     {
         [JsonProperty("status")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }

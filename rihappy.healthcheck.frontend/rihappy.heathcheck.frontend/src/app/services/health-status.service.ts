@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 
-// Interface para tipar a resposta da API
 export interface Component {
   name: string;
   description: string;
@@ -36,7 +35,6 @@ export class HealthStatusService {
   getHealthSuperAppAccount(): Observable<HealthStatusResponse> {
     return this.http.get<any>(this.apiUrlAccount).pipe(
       map((data) => {
-        // Mapeia a resposta da API para o formato esperado
         const components = Object.keys(data.entries).map((key) => ({
           name: key,
           description: data.entries[key].description || '',

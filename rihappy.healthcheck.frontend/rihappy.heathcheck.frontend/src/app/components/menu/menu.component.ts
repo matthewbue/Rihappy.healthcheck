@@ -10,7 +10,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class MenuComponent {
   isCollapsed = false;
-  activeTab: string = 'status'; // Define a aba ativa inicial
+  activeTab: string = 'status'; 
 
   setActiveTab(tab: string) {
     console.log(tab)
@@ -32,7 +32,7 @@ export class MenuComponent {
       setTimeout(() => {
         this.selectedPlatform = platform;
         this.transitioning = false;
-      }, 300); // Define o tempo da transição para 300ms
+      }, 300); 
     }
   }
 }

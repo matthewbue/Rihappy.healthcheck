@@ -22,8 +22,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
-builder.Services.AddHttpClient<IHealthRepository, HealthRepository>(client => {
-
+builder.Services.AddHttpClient<IHealthRepository, HealthRepository>(client =>
+{
 });
 
 builder.Services.AddScoped<IHealthRepository, HealthRepository>();

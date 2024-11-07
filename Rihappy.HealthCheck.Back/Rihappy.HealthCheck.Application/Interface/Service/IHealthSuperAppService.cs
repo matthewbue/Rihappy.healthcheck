@@ -10,8 +10,6 @@ namespace Rihappy.HealthCheck.Application.Interface.Service
 {
     public interface IHealthSuperAppService
     {
-        Task<HealthSuperApp> GetAccountAsync();
-        Task<HealthSuperApp> GetCheckoutAsync();
-        Task<HealthSuperApp> GetCatalogAsync();
+        Task<List<HealthSuperApp>> GetHealthSuperAppAsync();
     }
 }

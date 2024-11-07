@@ -19,47 +19,17 @@ namespace Rihappy.HealthCheck.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("account")]
-        public async Task<IActionResult> GetAccount()
+        [HttpGet("superApp")]
+        public async Task<IActionResult> GetSuperApp()
         {
             try
             {
-                var accounts = await _healthSuperAppService.GetAccountAsync();
+                var accounts = await _healthSuperAppService.GetHealthSuperAppAsync();
                 return Ok(accounts);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while getting incidents.");
-                return StatusCode(500, "An error occurred while processing your request.");
-            }
-        }
-
-        [HttpGet("checkout")]
-        public async Task<IActionResult> GetCheckout()
-        {
-            try
-            {
-                var checkouts = await _healthSuperAppService.GetCheckoutAsync();
-                return Ok(checkouts);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "An error occurred while getting status.");
-                return StatusCode(500, "An error occurred while processing your request.");
-            }
-        }
-
-        [HttpGet("catalog")]
-        public async Task<IActionResult> GetCatalog()
-        {
-            try
-            {
-                var catalogs = await _healthSuperAppService.GetCatalogAsync();
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "An error occurred while getting component impacts.");
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }

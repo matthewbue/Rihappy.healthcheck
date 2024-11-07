@@ -10,7 +10,9 @@ namespace Rihappy.HealthCheck.Domain.Interface.Repositories
     public interface IHealthSuperAppRepository
     {
         Task<HealthSuperApp> GetSuperAppAccountAsync();
+
         Task<HealthSuperApp> GetSuperAppCheckoutAsync();
+
         Task<HealthSuperApp> GetSuperAppCatalogAsync();
     }
 }

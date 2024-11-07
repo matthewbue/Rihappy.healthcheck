@@ -34,7 +34,7 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            var healthCheckResponse = JsonConvert.DeserializeObject<HealthSuperApp>(content);;
+            var healthCheckResponse = JsonConvert.DeserializeObject<HealthSuperApp>(content); ;
 
             return healthCheckResponse;
         }
