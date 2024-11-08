@@ -1,17 +1,11 @@
 <div class="logo">
-  <img src="healthcheck.svg" alt="RiHappy Logo" class="menu-logo">
-<nav class="menu">
-    <a href="/gcp" 
-       class="menu-item" 
-       [ngClass]="{'active': activeTab === 'gcp'}" 
-       (click)="setActiveTab('gcp')">
-        <img src="gcp.svg" alt="Google Cloud">
-    </a>
-    <a href="/status" 
-       class="menu-item" 
-       [ngClass]="{'active': activeTab === 'status'}" 
-       (click)="setActiveTab('status')">
-        <img src="vtex.svg" alt="VTEX">
-    </a>
-</nav>
+	<img src="healthcheck.svg" alt="RiHappy Logo" class="menu-logo">
+	<nav class="menu">
+		<a href="/gcp" class="menu-item" [ngClass]="{'active': activeTab === 'gcp'}" (click)="setActiveTab('gcp')">
+			<img src="gcp.svg" alt="Google Cloud">
+		</a>
+		<a href="/status" class="menu-item" [ngClass]="{'active': activeTab === 'status'}" (click)="setActiveTab('status')">
+			<img src="vtex.svg" alt="VTEX">
+		</a>
+	</nav>
 </div>

@@ -3,12 +3,8 @@ import { StatusComponent } from './components/panel-status/panel-status.componen
 import { PanelGcpComponent } from './components/panel-gcp/panel-gcp.component';
 
 export const routes: Routes = [
-  { path: 'status', component: StatusComponent },
-  { path: 'gcp', component: PanelGcpComponent },
-  { path: '', redirectTo: '/status', pathMatch: 'full' },  // Rota padrão
-  { path: '**', redirectTo: '/status' },  // Rota para tratar caminhos desconhecidos
+	{ path: 'status', component: StatusComponent },
+	{ path: 'gcp', component: PanelGcpComponent },
+	{ path: '', redirectTo: '/status', pathMatch: 'full' },
+	{ path: '**', redirectTo: '/status' },
 ];
-
-
-
-

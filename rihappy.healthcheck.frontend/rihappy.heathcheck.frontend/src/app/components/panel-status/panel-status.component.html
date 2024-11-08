@@ -19,7 +19,6 @@
 		</div>
 
   <div class="section-wrapper">
-    <h2><i class="fas fa-cogs"></i> Componentes do Sistema</h2>
     <div class="components-list">
       <div *ngFor="let group of components; trackBy: trackByGroup" class="card" [ngClass]="{'degraded': getGroupStatus(group) !== 'Operational'}">
         <div class="card-header">
@@ -37,21 +36,21 @@
 			<div *ngIf="ongoingIncidents.length > 0; else noIncidents">
 				<div class="components-list">
 					<div *ngFor="let incident of ongoingIncidents" class="incident-card">
-						
+
 
 						<div class="card-header">
 							<p><i class="fas fa-clock"></i> 🕛{{ incident.lastUpdate | date: 'dd/MM/yyyy | HH:mm' }}</p>
 							<h1>{{ incident.name }}</h1>
-							
+
 							<h3>🔴 Status: {{ incident.status }}</h3>
 						</div>
 						</div>
-				
+
 				</div>
 			</div>
 			<ng-template #noIncidents>
 				<div class="no-incidents-container">
-					<p class="no-incidents-time">🕛 {{ datenow | date: 'dd/MM/yyyy | HH:mm' }}</p>
+					<p class="no-incidents-time">🕛 {{ datenow | date: 'MM/dd/yyyy | HH:mm' }}</p>
 					<p class="no-incidents"><i class="fas fa-check-circle"></i> Oba! Não tem nenhum incidente em andamento no momento...</p>
 				</div>
 			</ng-template>
@@ -72,7 +71,7 @@
 						<td>{{ incident.date }}</td>
 						<td>{{ incident.name }}</td>
 						<td><span class="status-led"
-								[ngClass]="{'led-green': incident.status === 'Resolved', 'led-red': incident.status !== 'Resolved'}"></span>{{
+								[ngClass]="{'led-green-status': incident.status === 'Resolved', 'led-red-status': incident.status !== 'Resolved'}"></span>{{
 							incident.status }}</td>
 						<td>{{ incident.description }}</td>
 					</tr>
