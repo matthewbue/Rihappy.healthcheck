@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from '../../modal/modal.component';
 import { HealthStatusService, Group, HealthStatusResponse } from '../../services/health-status.service';
 import { HttpClientModule } from '@angular/common/http';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-panel-gcp',
@@ -11,9 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./panel-gcp.component.css'],
   imports: [CommonModule, ModalComponent, HttpClientModule]
 })
-export class PanelGcpComponent implements OnInit {
+export class PanelGcpComponent implements OnInit, OnDestroy {
   platformStatus: string = 'Google Cloud';
   platformStatusDescription: string = 'Os sistemas estão em pleno funcionamento 😃';
+  private intervalId: any;
   components: Group[] = [];
   ongoingIncidents: any[] = [];
   showIncidentHistory = false;
@@ -32,6 +34,11 @@ export class PanelGcpComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchStatus();
+    this.startAutoRefresh(); 
+  }
+
+  ngOnDestroy(): void{
+    clearInterval(this.intervalId); 
   }
 
   fetchStatus(): void {
@@ -66,6 +73,12 @@ export class PanelGcpComponent implements OnInit {
         this.platformStatusDescription = 'Não foi possível verificar o status dos sistemas.';
       }
     );
+  }
+
+  startAutoRefresh(): void {
+    this.intervalId = setInterval(() => {
+      this.fetchStatus(); 
+    }, 30000); 
   }
 
   addOngoingIncidentsToHistory(): void {
