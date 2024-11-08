@@ -117,49 +117,6 @@ namespace Rihappy.HealthCeck.API.Mapping
             }
             return worstStatus;
         }
-
-        public VtexStatusResponseDTO MapSuperAppToDto(HealthSuperApp healthSuperApp)
-        {
-            var vtexStatusResponseDto = new VtexStatusResponseDTO
-            {
-                CategoryName = healthSuperApp.CategoryName,
-                Components = new List<CategoryComponentsDto>()
-            };
-
-            foreach (var entry in healthSuperApp.Entries)
-            {
-                var categoryComponent = new CategoryComponentsDto
-                {
-                    GroupName = entry.Key,
-                    Components = new List<ComponentDto>()
-                };
-
-                if (entry.Value.Data != null)
-                {
-                    foreach (var componentEntry in entry.Value.Data)
-                    {
-                        var component = new ComponentDto
-                        {
-                            Name = componentEntry.Key,
-                            Description = (componentEntry.Value as EndpointData)?.Description ?? string.Empty,
-                            Status = (componentEntry.Value as EndpointData)?.Status ?? "Unknown"
-                        };
-
-                        categoryComponent.Components.Add(component);
-                    }
-                }
-
-                vtexStatusResponseDto.Components.Add(categoryComponent);
-            }
-
-            return vtexStatusResponseDto;
-        }
-
-        public List<VtexStatusResponseDTO> MapSuperAppListToDtoList(List<HealthSuperApp> superApps)
-        {
-            return superApps.Select(healthSuperApp => MapSuperAppToDto(healthSuperApp)).ToList();
-        }
-
         public List<VtexIncindentResponseDTO> MapIncidentToDto(List<Incident> incidents)
         {
             return incidents.Select(incident => new VtexIncindentResponseDTO

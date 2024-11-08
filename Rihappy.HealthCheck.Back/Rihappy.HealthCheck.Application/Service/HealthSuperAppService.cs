@@ -28,18 +28,15 @@ namespace Rihappy.HealthCheck.Application.Service
             try
             {
                 List<HealthSuperApp> superAppList = new List<HealthSuperApp>();
-                _logger.LogInformation("Fetching incidents from {StartAt} to {EndAt}");
                 var accounts = await _healthSuperAppRepository.GetSuperAppAccountAsync();
-                accounts.CategoryName = "Account";
+                accounts.GroupName = "Account";
                 superAppList.Add(accounts);
                 var checkouts = await _healthSuperAppRepository.GetSuperAppCheckoutAsync();
-                checkouts.CategoryName = "Checkout";
+                checkouts.GroupName = "Checkout";
                 superAppList.Add(checkouts);
                 var catalogs = await _healthSuperAppRepository.GetSuperAppCatalogAsync();
-                catalogs.CategoryName = "Catalog";
+                catalogs.GroupName = "Catalog";
                 superAppList.Add(catalogs);
-                VtexStatusMapper _mapper = new VtexStatusMapper();
-                //var resultDto = _mapper.MapSuperAppToDto(superAppList);
                 return superAppList;
             }
             catch (Exception ex)

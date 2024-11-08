@@ -17,42 +17,43 @@ export interface HealthStatusResponse {
   categoryName: string;
   components: Group[];
   status: string;
-
 }
+
 @Injectable({
   providedIn: 'root',
-  
 })
 export class HealthStatusService {
-
   private apiUrl = 'https://localhost:7233/api/Health/status';
-  private apiUrlAccount = 'https://api-superapp.gruporihappy.com.br/api/Checkout/hc';
-  constructor(private http: HttpClient) { }
+  private apiUrlAccount = 'https://localhost:7233/api/HealthSuperApp/superApp';
+
+  constructor(private http: HttpClient) {}
 
   getHealthStatus(): Observable<HealthStatusResponse> {
     return this.http.get<HealthStatusResponse>(this.apiUrl);
   }
-  getHealthSuperAppAccount(): Observable<HealthStatusResponse> {
-    return this.http.get<any>(this.apiUrlAccount).pipe(
-      map((data) => {
-        const components = Object.keys(data.entries).map((key) => ({
-          name: key,
-          description: data.entries[key].description || '',
-          status: data.entries[key].status,
-        }));
 
-        return {
-          categoryName: data.status === 'Healthy' ? 'Sistema em funcionamento' : 'Problemas no sistema',
-          status: data.status,
-          components: [
-            {
-              groupName: 'Status Geral',
-              components,
-            },
-          ],
-        };
+  getHealthSuperAppAccount(): Observable<HealthStatusResponse[]> {
+    return this.http.get<any>(this.apiUrlAccount).pipe(
+      map((data: any[]) => {
+        return data.map((category: any) => {
+          const components = Object.keys(category.entries).map((key) => ({
+            name: key,
+            description: category.entries[key].description || 'Descrição não disponível',
+            status: category.entries[key].status === 'Healthy' ? 'Operational' : 'Degraded'
+          }));
+          console.log(category)
+          return {
+            categoryName: category.groupName, // Define o categoryName principal
+            status: category.status,
+            components: [
+              {
+                groupName: category.groupName, // Define o groupName corretamente aqui
+                components, // Lista de componentes mapeados para o grupo
+              } as Group,
+            ],
+          } as HealthStatusResponse;
+        });
       })
     );
   }
 }
-

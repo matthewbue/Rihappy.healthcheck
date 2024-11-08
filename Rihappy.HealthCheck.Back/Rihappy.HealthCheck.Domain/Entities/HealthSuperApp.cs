@@ -6,7 +6,7 @@ namespace Rihappy.HealthCheck.Domain.Entities
 {
     public class HealthSuperApp
     {
-        public string? CategoryName { get; set; }
+        public string? GroupName { get; set; }
 
         [JsonProperty("status")]
         public string? Status { get; set; }
