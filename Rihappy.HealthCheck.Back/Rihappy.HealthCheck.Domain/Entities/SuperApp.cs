@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Rihappy.HealthCheck.Domain.Entities
 {
-    public class HealthSuperApp
+    public class SuperApp
     {
         public string? GroupName { get; set; }
 
@@ -15,13 +15,13 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public string? TotalDuration { get; set; }
 
         [JsonProperty("entries")]
-        public Dictionary<string, HealthEntry> Entries { get; set; }
+        public Dictionary<string, HealthEntry>? Entries { get; set; }
     }
 
     public class HealthEntry
     {
         [JsonProperty("data")]
-        public Dictionary<string, object> Data { get; set; } 
+        public Dictionary<string, object>? Data { get; set; } 
 
         [JsonProperty("duration")]
         public string? Duration { get; set; }
@@ -33,7 +33,7 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public string? Description { get; set; }
 
         [JsonProperty("tags")]
-        public List<string> Tags { get; set; }
+        public List<string>? Tags { get; set; }
     }
 
     public class EndpointData

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Rihappy.HealthCheck.Application.Interface.Service
 {
-    public interface IHealthSuperAppService
+    public interface ISuperAppService
     {
-        Task<List<HealthSuperApp>> GetHealthSuperAppAsync();
+        Task<List<SuperApp>> GetHealthSuperAppAsync();
     }
 }

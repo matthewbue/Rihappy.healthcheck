@@ -12,22 +12,22 @@ using System.Threading.Tasks;
 
 namespace Rihappy.HealthCheck.Application.Service
 {
-    public class HealthSuperAppService : IHealthSuperAppService
+    public class SuperAppService : ISuperAppService
     {
-        private readonly IHealthSuperAppRepository _healthSuperAppRepository;
-        private readonly ILogger<HealthSuperAppService> _logger;
+        private readonly ISuperAppRepository _healthSuperAppRepository;
+        private readonly ILogger<SuperAppService> _logger;
 
-        public HealthSuperAppService(IHealthSuperAppRepository healthSuperAppRepository, ILogger<HealthSuperAppService> logger)
+        public SuperAppService(ISuperAppRepository healthSuperAppRepository, ILogger<SuperAppService> logger)
         {
             _healthSuperAppRepository = healthSuperAppRepository;
             _logger = logger;
         }
 
-        public async Task<List<HealthSuperApp>> GetHealthSuperAppAsync()
+        public async Task<List<SuperApp>> GetHealthSuperAppAsync()
         {
             try
             {
-                List<HealthSuperApp> superAppList = new List<HealthSuperApp>();
+                List<SuperApp> superAppList = new List<SuperApp>();
                 var accounts = await _healthSuperAppRepository.GetSuperAppAccountAsync();
                 accounts.GroupName = "Account";
                 superAppList.Add(accounts);

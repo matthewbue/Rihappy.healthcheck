@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Request\" />
+    <Compile Remove="DTOs\Request\**" />
+    <EmbeddedResource Remove="DTOs\Request\**" />
+    <None Remove="DTOs\Request\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -13,18 +13,18 @@ using System.Threading.Tasks;
 
 namespace Rihappy.HealthCheck.Data.Rest.Repositories
 {
-    public class HealthSuperAppRepository : IHealthSuperAppRepository
+    public class SuperAppRepository : ISuperAppRepository
     {
         private readonly HttpClient _httpClient;
-        private readonly ILogger<HealthSuperAppRepository> _logger;
+        private readonly ILogger<SuperAppRepository> _logger;
 
-        public HealthSuperAppRepository(HttpClient httpClient, ILogger<HealthSuperAppRepository> logger)
+        public SuperAppRepository(HttpClient httpClient, ILogger<SuperAppRepository> logger)
         {
             _httpClient = httpClient;
             _logger = logger;
         }
 
-        public async Task<HealthSuperApp> GetSuperAppAccountAsync()
+        public async Task<SuperApp> GetSuperAppAccountAsync()
         {
             var response = await _httpClient.GetAsync("https://api-superapp.gruporihappy.com.br/api/Account/hc");
 
@@ -34,12 +34,17 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            var healthCheckResponse = JsonConvert.DeserializeObject<HealthSuperApp>(content); ;
+            var healthCheckResponse = JsonConvert.DeserializeObject<SuperApp>(content); 
+
+            if(healthCheckResponse is null)
+            {
+                return new SuperApp();
+            }
 
             return healthCheckResponse;
         }
 
-        public async Task<HealthSuperApp> GetSuperAppCheckoutAsync()
+        public async Task<SuperApp> GetSuperAppCheckoutAsync()
         {
             var response = await _httpClient.GetAsync("https://api-superapp.gruporihappy.com.br/api/Checkout/hc");
 
@@ -50,13 +55,17 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
 
             var content = await response.Content.ReadAsStringAsync();
 
-            // Usando JsonConvert do Newtonsoft.Json para desserialização
-            var healthCheckResponse = JsonConvert.DeserializeObject<HealthSuperApp>(content);
+            var healthCheckResponse = JsonConvert.DeserializeObject<SuperApp>(content);
+
+            if (healthCheckResponse is null)
+            {
+                return new SuperApp();
+            }
 
             return healthCheckResponse;
         }
 
-        public async Task<HealthSuperApp> GetSuperAppCatalogAsync()
+        public async Task<SuperApp> GetSuperAppCatalogAsync()
         {
             var response = await _httpClient.GetAsync("https://api-superapp.gruporihappy.com.br/api/Catalog/hc");
 
@@ -66,7 +75,12 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            var healthCheckResponse = JsonConvert.DeserializeObject<HealthSuperApp>(content);
+
+            var healthCheckResponse = JsonConvert.DeserializeObject<SuperApp>(content);
+            if (healthCheckResponse is null)
+            {
+                return new SuperApp();
+            }
 
             return healthCheckResponse;
         }

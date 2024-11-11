@@ -5,10 +5,10 @@ using System.Text.Json.Serialization;
 
 namespace Rihappy.HealthCheck.Domain.Entities
 {
-    public class VtexStatus
+    public class Vtex
     {
         [JsonProperty("summary")]
-        public Summary Summary { get; set; }
+        public Summary? Summary { get; set; }
     }
 
     public class Summary
@@ -38,7 +38,7 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public string? FaviconUrl { get; set; }
 
         [JsonProperty("components")]
-        public List<Component> Components { get; set; }
+        public List<Component>? Components { get; set; }
 
         [JsonProperty("subscriptions_disabled")]
         public bool SubscriptionsDisabled { get; set; }
@@ -50,13 +50,13 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public bool AllowSearchEngineIndexing { get; set; }
 
         [JsonProperty("affected_components")]
-        public List<AffectedComponent> AffectedComponents { get; set; }
+        public List<AffectedComponent>? AffectedComponents { get; set; }
 
         [JsonProperty("ongoing_incidents")]
-        public List<OngoingIncident> OngoingIncidents { get; set; }
+        public List<OngoingIncident>? OngoingIncidents { get; set; }
 
         [JsonProperty("scheduled_maintenances")]
-        public List<ScheduledMaintenance> ScheduledMaintenances { get; set; }
+        public List<ScheduledMaintenance>? ScheduledMaintenances { get; set; }
 
         [JsonProperty("structure")]
         public Structure Structure { get; set; }
@@ -131,7 +131,7 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public string? Status { get; set; }
 
         [JsonProperty("affected_components")]
-        public List<AffectedComponent> AffectedComponents { get; set; }
+        public List<AffectedComponent>? AffectedComponents { get; set; }
 
         [JsonProperty("component_impacts")]
         public List<ComponentImpact> ComponentImpacts { get; set; }
@@ -191,7 +191,7 @@ namespace Rihappy.HealthCheck.Domain.Entities
         public string? StatusPageId { get; set; }
 
         [JsonProperty("items")]
-        public List<Item> Items { get; set; }
+        public List<Item>? Items { get; set; }
     }
 
     public class Item

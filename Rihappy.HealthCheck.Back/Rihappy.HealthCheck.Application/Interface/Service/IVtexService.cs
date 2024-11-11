@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace Rihappy.HealthCheck.Application.Interface.Service
 {
-    public interface IHealthService
+    public interface IVtexService
     {
         Task<List<VtexIncindentResponseDTO>> GetIncidentsAsync(DateTime startAt, DateTime endAt);
 
         Task<VtexStatusResponseDTO> GetStatusAsync();
-
-        Task<VtexComponent> GetComponentImpactsAsync(DateTime startAt, DateTime endAt);
     }
 }
