@@ -1,23 +1,18 @@
 ﻿using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Rihappy.HealthCheck.Data.Rest.Data;
 using Rihappy.HealthCheck.Domain.Entities;
 using Rihappy.HealthCheck.Domain.Interface.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Rihappy.HealthCheck.Data.Rest.Repositories
 {
-    public class HealthRepository : IHealthRepository
+    public class VtexRepository : IVtexRepository
     {
         private readonly HttpClient _httpClient;
-        private readonly ILogger<HealthRepository> _logger;
+        private readonly ILogger<VtexRepository> _logger;
 
-        public HealthRepository(HttpClient httpClient, ILogger<HealthRepository> logger)
+        public VtexRepository(HttpClient httpClient, ILogger<VtexRepository> logger)
         {
             _httpClient = httpClient;
             _logger = logger;
@@ -48,10 +43,15 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
 
             var result = JsonConvert.DeserializeObject<VtexIncident>(jsonString);
 
+            if (result is null)
+            {
+                return new VtexIncident();
+            }
+
             return result;
         }
 
-        public async Task<VtexStatus> GetStatusAsync()
+        public async Task<Vtex> GetStatusAsync()
         {
             var requestUri = "";
 
@@ -61,28 +61,14 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
 
             var jsonString = await response.Content.ReadAsStringAsync();
 
-            var result = JsonConvert.DeserializeObject<VtexStatus>(jsonString);
+            var result = JsonConvert.DeserializeObject<Vtex>(jsonString);
 
-            return result;
-        }
-
-        public async Task<VtexComponent> GetComponentImpactsAsync(DateTime startAt, DateTime endAt)
-        {
-            var startAtFormatted = startAt.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz");
-            var endAtFormatted = endAt.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz");
-
-            var requestUri = $"component_impacts?start_at={Uri.EscapeDataString(startAtFormatted)}&end_at={Uri.EscapeDataString(endAtFormatted)}";
-
-            var response = await _httpClient.GetAsync(requestUri);
-
-            response.EnsureSuccessStatusCode();
-
-            var jsonString = await response.Content.ReadAsStringAsync();
-
-            var result = JsonConvert.DeserializeObject<VtexComponent>(jsonString);
+            if (result is null)
+            {
+                return new Vtex();
+            }
 
             return result;
         }
     }
-
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Rihappy.HealthCheck.Domain.Interface.Repositories
 {
-    public interface IHealthSuperAppRepository
+    public interface ISuperAppRepository
     {
-        Task<HealthSuperApp> GetSuperAppAccountAsync();
+        Task<SuperApp> GetSuperAppAccountAsync();
 
-        Task<HealthSuperApp> GetSuperAppCheckoutAsync();
+        Task<SuperApp> GetSuperAppCheckoutAsync();
 
-        Task<HealthSuperApp> GetSuperAppCatalogAsync();
+        Task<SuperApp> GetSuperAppCatalogAsync();
     }
 }

@@ -1,13 +1,12 @@
 ﻿using Rihappy.HealthCheck.Application.DTOs.Response;
 using Rihappy.HealthCheck.Domain.Entities;
-using static Rihappy.HealthCheck.Application.DTOs.Response.StatusResponseDTO;
 using static Rihappy.HealthCheck.Domain.Entities.VtexIncident;
 
 namespace Rihappy.HealthCeck.API.Mapping
 {
     public class VtexStatusMapper
     {
-        public VtexStatusResponseDTO MapToDto(VtexStatus vtexStatus)
+        public VtexStatusResponseDTO MapToDto(Vtex vtexStatus)
         {
             var vtexStatusDto = new VtexStatusResponseDTO
             {
@@ -75,7 +74,7 @@ namespace Rihappy.HealthCeck.API.Mapping
             return vtexStatusDto;
         }
 
-        private string InferComponentStatus(VtexStatus vtexStatus, string componentId)
+        private string InferComponentStatus(Vtex vtexStatus, string componentId)
         {
             if (vtexStatus.Summary.ScheduledMaintenances != null)
             {

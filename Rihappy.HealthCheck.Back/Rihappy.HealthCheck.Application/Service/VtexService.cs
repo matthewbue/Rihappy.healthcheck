@@ -13,12 +13,12 @@ using static Rihappy.HealthCheck.Domain.Entities.VtexIncident;
 
 namespace Rihappy.HealthCheck.Application.Service
 {
-    public class HealthService : IHealthService
+    public class VtexService : IVtexService
     {
-        private readonly IHealthRepository _healthRepository;
-        private readonly ILogger<HealthService> _logger;
+        private readonly IVtexRepository _healthRepository;
+        private readonly ILogger<VtexService> _logger;
 
-        public HealthService(IHealthRepository healthRepository, ILogger<HealthService> logger)
+        public VtexService(IVtexRepository healthRepository, ILogger<VtexService> logger)
         {
             _healthRepository = healthRepository;
             _logger = logger;
@@ -59,21 +59,6 @@ namespace Rihappy.HealthCheck.Application.Service
             }
         }
 
-        public async Task<VtexComponent> GetComponentImpactsAsync(DateTime startAt, DateTime endAt)
-        {
-            try
-            {
-                _logger.LogInformation("Fetching component impacts from {StartAt} to {EndAt}", startAt, endAt);
-                var componentImpacts = await _healthRepository.GetComponentImpactsAsync(startAt, endAt);
-                return componentImpacts;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "An error occurred while fetching component impacts.");
-                throw;
-            }
-
-
-        }
+        
     }
 }
