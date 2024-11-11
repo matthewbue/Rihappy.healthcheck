@@ -5,112 +5,112 @@ import { HealthStatusService, Group, HealthStatusResponse } from '../../services
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-panel-gcp',
-  standalone: true,
-  templateUrl: './panel-gcp.component.html',
-  styleUrls: ['./panel-gcp.component.css'],
-  imports: [CommonModule, ModalComponent, HttpClientModule]
+	selector: 'app-panel-gcp',
+	standalone: true,
+	templateUrl: './panel-gcp.component.html',
+	styleUrls: ['./panel-gcp.component.css'],
+	imports: [CommonModule, ModalComponent, HttpClientModule]
 })
 export class PanelGcpComponent implements OnInit {
-  platformStatus: string = 'Google Cloud';
-  platformStatusDescription: string = 'Os sistemas estão em pleno funcionamento 😃';
-  components: Group[] = [];
-  ongoingIncidents: any[] = [];
-  showIncidentHistory = false;
-  dataAtual = new Date();
-  datenow = this.dataAtual.toLocaleDateString('pt-BR');
-  
-  isModalVisible: boolean = false;
-  selectedGroupName: string = '';
-  selectedComponents: any[] = [];
+	platformStatus: string = 'Google Cloud';
+	platformStatusDescription: string = 'Os sistemas estão em pleno funcionamento 😃';
+	components: Group[] = [];
+	ongoingIncidents: any[] = [];
+	showIncidentHistory = false;
+	dataAtual = new Date();
+	datenow = this.dataAtual.toLocaleDateString('pt-BR');
 
-  incidentHistory = [
-    { date: '2024-10-25', name: 'Cloud provider issue causing elevated 5xx errors', status: 'Resolved', description: 'This incident was caused by a cloud provider issue affecting stores in Argentina. It was resolved after 26 minutes.' },
-  ];
+	isModalVisible: boolean = false;
+	selectedGroupName: string = '';
+	selectedComponents: any[] = [];
 
-  constructor(private statusService: HealthStatusService) {}
+	incidentHistory = [
+		{ date: '2024-10-25', name: 'Cloud provider issue causing elevated 5xx errors', status: 'Resolved', description: 'This incident was caused by a cloud provider issue affecting stores in Argentina. It was resolved after 26 minutes.' },
+	];
 
-  ngOnInit(): void {
-    this.fetchStatus();
-  }
+	constructor(private statusService: HealthStatusService) { }
 
-  fetchStatus(): void {
-    this.statusService.getHealthSuperAppAccount().subscribe(
-      (data: HealthStatusResponse[]) => {
-        // Flatten the data to ensure components are accessible by group
-        this.components = data.flatMap(category => category.components);
-        console.log(this.components)
-        const hasDegradedComponents = this.components.some(group =>
-          group.components.some(component => component.status === 'Degraded')
-        );
+	ngOnInit(): void {
+		this.fetchStatus();
+	}
 
-        this.ongoingIncidents = this.components
-          .flatMap(group => group.components)
-          .filter(component => component.status !== 'Operational')
-          .map(component => ({
-            name: component.name,
-            status: component.status,
-            lastUpdate: new Date(),
-            description: component.description || 'Descrição não disponível',
-            showTooltip: false
-          }));
+	fetchStatus(): void {
+		this.statusService.getHealthSuperAppAccount().subscribe(
+			(data: HealthStatusResponse[]) => {
+				// Flatten the data to ensure components are accessible by group
+				this.components = data.flatMap(category => category.components);
+				console.log(this.components)
+				const hasDegradedComponents = this.components.some(group =>
+					group.components.some(component => component.status === 'Degraded')
+				);
 
-        this.platformStatusDescription = hasDegradedComponents
-          ? 'Alguns serviços estão apresentando problemas ⚠️'
-          : 'Os sistemas estão em pleno funcionamento 😃';
+				this.ongoingIncidents = this.components
+					.flatMap(group => group.components)
+					.filter(component => component.status !== 'Operational')
+					.map(component => ({
+						name: component.name,
+						status: component.status,
+						lastUpdate: new Date(),
+						description: component.description || 'Descrição não disponível',
+						showTooltip: false
+					}));
 
-        this.addOngoingIncidentsToHistory();
-      },
-      (error) => {
-        console.error('Erro ao buscar status:', error);
-        this.platformStatusDescription = 'Não foi possível verificar o status dos sistemas.';
-      }
-    );
-  }
+				this.platformStatusDescription = hasDegradedComponents
+					? 'Alguns serviços estão apresentando problemas ⚠️'
+					: 'Os sistemas estão em pleno funcionamento 😃';
 
-  addOngoingIncidentsToHistory(): void {
-    this.ongoingIncidents.forEach(incident => {
-      const existsInHistory = this.incidentHistory.some(
-        history => history.name === incident.name && history.status === incident.status
-      );
+				this.addOngoingIncidentsToHistory();
+			},
+			(error) => {
+				console.error('Erro ao buscar status:', error);
+				this.platformStatusDescription = 'Não foi possível verificar o status dos sistemas.';
+			}
+		);
+	}
 
-      if (!existsInHistory) {
-        this.incidentHistory.push({
-          date: new Date().toLocaleDateString(),
-          name: incident.name,
-          status: incident.status,
-          description: incident.description
-        });
-      }
-    });
-  }
+	addOngoingIncidentsToHistory(): void {
+		this.ongoingIncidents.forEach(incident => {
+			const existsInHistory = this.incidentHistory.some(
+				history => history.name === incident.name && history.status === incident.status
+			);
 
-  toggleTooltip(incident: any): void {
-    incident.showTooltip = !incident.showTooltip;
-  }
+			if (!existsInHistory) {
+				this.incidentHistory.push({
+					date: new Date().toLocaleDateString(),
+					name: incident.name,
+					status: incident.status,
+					description: incident.description
+				});
+			}
+		});
+	}
 
-  getGroupStatus(group: Group): string {
-    const allOperational = group.components.every(comp => comp.status === 'Operational');
-    return allOperational ? 'Operational' : 'Degraded';
-  }
+	toggleTooltip(incident: any): void {
+		incident.showTooltip = !incident.showTooltip;
+	}
 
-  hasDegradedComponents(): boolean {
-    return this.components.some(group => 
-        group.components.some(component => component.status === 'Degraded')
-    );
-  }
+	getGroupStatus(group: Group): string {
+		const allOperational = group.components.every(comp => comp.status === 'Operational');
+		return allOperational ? 'Operational' : 'Degraded';
+	}
 
-  openModal(group: Group): void {
-    this.selectedGroupName = group.groupName;
-    this.selectedComponents = group.components;
-    this.isModalVisible = true;
-  }
+	hasDegradedComponents(): boolean {
+		return this.components.some(group =>
+			group.components.some(component => component.status === 'Degraded')
+		);
+	}
 
-  closeModal(): void {
-    this.isModalVisible = false;
-  }
+	openModal(group: Group): void {
+		this.selectedGroupName = group.groupName;
+		this.selectedComponents = group.components;
+		this.isModalVisible = true;
+	}
 
-  toggleIncidentHistory() {
-    this.showIncidentHistory = !this.showIncidentHistory;
-  }
+	closeModal(): void {
+		this.isModalVisible = false;
+	}
+
+	toggleIncidentHistory() {
+		this.showIncidentHistory = !this.showIncidentHistory;
+	}
 }
