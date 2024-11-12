@@ -1,6 +1,8 @@
+using Microsoft.Extensions.Configuration;
 using Rihappy.HealthCheck.Application.Interface.Service;
 using Rihappy.HealthCheck.Application.Service;
 using Rihappy.HealthCheck.Data.Rest.Repositories;
+using Rihappy.HealthCheck.Data.Rest.Settings;
 using Rihappy.HealthCheck.Domain.Interface.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +27,8 @@ builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<IVtexRepository, VtexRepository>(client =>
 {
 });
+
+builder.Services.Configure<HealthCheckSettings>(builder.Configuration.GetSection("HealthCheckSettings"));
 
 builder.Services.AddScoped<IVtexRepository, VtexRepository>();
 builder.Services.AddScoped<IVtexService, VtexService>();

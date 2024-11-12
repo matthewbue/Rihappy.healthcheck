@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Rihappy.HealthCheck.Application.DTOs.Response;
+using Rihappy.HealthCheck.Data.Rest.Settings;
 using Rihappy.HealthCheck.Domain.Entities;
 using Rihappy.HealthCheck.Domain.Interface.Repositories;
 using System;
@@ -17,16 +19,18 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
     {
         private readonly HttpClient _httpClient;
         private readonly ILogger<SuperAppRepository> _logger;
+        private readonly SuperAppUrls _urls;
 
-        public SuperAppRepository(HttpClient httpClient, ILogger<SuperAppRepository> logger)
+        public SuperAppRepository(HttpClient httpClient, ILogger<SuperAppRepository> logger, IOptions<HealthCheckSettings> settings)
         {
             _httpClient = httpClient;
             _logger = logger;
+            _urls = settings.Value.SuperApp;
         }
 
         public async Task<SuperApp> GetSuperAppAccountAsync()
         {
-            var response = await _httpClient.GetAsync("https://api-superapp.gruporihappy.com.br/api/Account/hc");
+            var response = await _httpClient.GetAsync(_urls.AccountUrl);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -46,7 +50,7 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
 
         public async Task<SuperApp> GetSuperAppCheckoutAsync()
         {
-            var response = await _httpClient.GetAsync("https://api-superapp.gruporihappy.com.br/api/Checkout/hc");
+            var response = await _httpClient.GetAsync(_urls.CheckoutUrl);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -67,7 +71,7 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
 
         public async Task<SuperApp> GetSuperAppCatalogAsync()
         {
-            var response = await _httpClient.GetAsync("https://api-superapp.gruporihappy.com.br/api/Catalog/hc");
+            var response = await _httpClient.GetAsync(_urls.CatalogUrl);
 
             if (!response.IsSuccessStatusCode)
             {
