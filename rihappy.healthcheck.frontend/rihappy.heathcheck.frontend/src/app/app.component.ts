@@ -5,13 +5,14 @@ import { PanelGcpComponent } from './components/panel-gcp/panel-gcp.component';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from "./components/menu/menu.component";
 import { ModalComponent } from './modal/modal.component';
+import { LoginComponent } from './login/login.component';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
-	imports: [RouterOutlet, StatusComponent, CommonModule, MenuComponent, ModalComponent, PanelGcpComponent] // Removi a duplicação
+	imports: [RouterOutlet, CommonModule, MenuComponent, StatusComponent] 
 })
 export class AppComponent {
 	title = 'rihappy.heathcheck.frontend';

@@ -9,7 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 	standalone: true,
 	templateUrl: './panel-status.component.html',
 	styleUrls: ['./panel-status.component.css'],
-	imports: [CommonModule, ModalComponent, HttpClientModule]
+	imports: [CommonModule, ModalComponent, HttpClientModule],
+	template: `
+    <div>
+      <h1>Bem-vindo ao Health Check</h1>
+      <button (click)="logout()">Sair</button>
+    </div>
+  `,	
 })
 export class StatusComponent implements OnInit, OnDestroy {
 	platformStatus: string = 'VTEX';
@@ -30,6 +36,11 @@ export class StatusComponent implements OnInit, OnDestroy {
 	];
 
 	constructor(private statusService: HealthStatusService) { }
+
+	logout(): void {
+		localStorage.removeItem('isLoggedIn');
+		location.reload();
+	}
 
 	ngOnInit(): void {
 		this.fetchStatus();

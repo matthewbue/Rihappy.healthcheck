@@ -3,14 +3,19 @@ import { CommonModule } from '@angular/common';
 import { ModalComponent } from '../../modal/modal.component';
 import { HealthStatusService, Group, HealthStatusResponse } from '../../services/health-status.service';
 import { HttpClientModule } from '@angular/common/http';
-import { interval } from 'rxjs';
 
 @Component({
 	selector: 'app-panel-gcp',
 	standalone: true,
 	templateUrl: './panel-gcp.component.html',
 	styleUrls: ['./panel-gcp.component.css'],
-	imports: [CommonModule, ModalComponent, HttpClientModule]
+	imports: [CommonModule, ModalComponent, HttpClientModule],
+	template: `
+    <div>
+      <h1>Bem-vindo ao Health Check</h1>
+      <button (click)="logout()">Sair</button>
+    </div>
+  `,	
 })
 export class PanelGcpComponent implements OnInit, OnDestroy {
   platformStatus: string = 'Google Cloud';
@@ -31,6 +36,11 @@ export class PanelGcpComponent implements OnInit, OnDestroy {
 	];
 
 	constructor(private statusService: HealthStatusService) { }
+
+  logout(): void {
+	localStorage.removeItem('isLoggedIn');
+	location.reload();
+  }	
 
   ngOnInit(): void {
     this.fetchStatus();

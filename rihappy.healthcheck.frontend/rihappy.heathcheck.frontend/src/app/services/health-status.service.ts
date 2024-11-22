@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 
 export interface Component {
@@ -23,17 +23,25 @@ export interface HealthStatusResponse {
 	providedIn: 'root',
 })
 export class HealthStatusService {
-	private apiUrl = 'https://localhost:7233/api/Health/status';
-	private apiUrlAccount = 'https://localhost:7233/api/HealthSuperApp/superApp';
+	private apiUrl = 'https://localhost:7233/api/Vtex/status';
+	private apiUrlAccount = 'https://localhost:7233/api/SuperApp/status';
 
 	constructor(private http: HttpClient) { }
 
 	getHealthStatus(): Observable<HealthStatusResponse> {
-		return this.http.get<HealthStatusResponse>(this.apiUrl);
+		const token = localStorage.getItem('token');		
+	    const headers = new HttpHeaders({
+		Authorization: `Bearer ${token}`, 
+	  	});
+		return this.http.get<HealthStatusResponse>(this.apiUrl, { headers } );
 	}
 
 	getHealthSuperAppAccount(): Observable<HealthStatusResponse[]> {
-		return this.http.get<any>(this.apiUrlAccount).pipe(
+		const token = localStorage.getItem('token');		
+	    const headers = new HttpHeaders({
+		Authorization: `Bearer ${token}`, 
+	  	});
+		return this.http.get<any>(this.apiUrlAccount, { headers }).pipe(
 			map((data: any[]) => {
 				return data.map((category: any) => {
 					const components = Object.keys(category.entries).map((key) => ({

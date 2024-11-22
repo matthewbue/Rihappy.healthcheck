@@ -49,7 +49,7 @@ namespace Rihappy.HealthCheck.Data.Rest.Repositories
 
         public async Task<Vtex> GetStatusAsync()
         {
-            var requestUri = "";  // Use o _urls.BaseUrl se houver um endpoint específico para status.
+            var requestUri = "";  
 
             var response = await _httpClient.GetAsync(requestUri);
 

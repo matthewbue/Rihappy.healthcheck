@@ -7,11 +7,13 @@ using System.Net.Mime;
 using System.Net;
 using System.Threading.Tasks;
 using Rihappy.HealthCheck.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Rihappy.HealthCheck.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class SuperAppController : ControllerBase
     {
         private readonly ISuperAppService _healthSuperAppService;

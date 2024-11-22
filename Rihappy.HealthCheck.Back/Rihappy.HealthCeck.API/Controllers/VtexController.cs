@@ -3,11 +3,13 @@ using Rihappy.HealthCheck.Application.Interface.Service;
 using System.Net.Mime;
 using System.Net;
 using Rihappy.HealthCheck.Application.DTOs.Response;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Rihappy.HealthCeck.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class VtexController : ControllerBase
     {
         private readonly IVtexService _healthService;
