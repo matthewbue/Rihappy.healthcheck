@@ -21,6 +21,23 @@ builder.Services.AddCors(options =>
                    .AllowAnyHeader();
         });
 });
+
+var secretKey = builder.Configuration["JwtSettings:SecretKey"];
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+            ValidAudience = builder.Configuration["JwtSettings:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+        };
+    });
+
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,28 +48,13 @@ builder.Services.AddHttpClient<IVtexRepository, VtexRepository>(client =>
 {
 });
 
-var secretKey = Encoding.UTF8.GetBytes("my_super_secure_and_longer_secret_key_123!"); // Substitua por uma chave mais segura
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = "AuthAPI", //Emissor
-            ValidAudience = "AuthAPI", //Público
-            IssuerSigningKey = new SymmetricSecurityKey(secretKey)
-        };
-    });
-
 builder.Services.Configure<HealthCheckSettings>(builder.Configuration.GetSection("HealthCheckSettings"));
 
 builder.Services.AddScoped<IVtexRepository, VtexRepository>();
 builder.Services.AddScoped<IVtexService, VtexService>();
 builder.Services.AddScoped<ISuperAppRepository, SuperAppRepository>();
 builder.Services.AddScoped<ISuperAppService, SuperAppService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddSingleton<AuthService>();
 

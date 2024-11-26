@@ -5,10 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-	{ path: 'status', component: StatusComponent },
-	{ path: 'gcp', component: PanelGcpComponent },
+	{ path: 'status', component: StatusComponent, canActivate: [AuthGuard] },
+	{ path: 'gcp', component: PanelGcpComponent, canActivate: [AuthGuard] },
 	{ path: 'login', component: LoginComponent },
-	{ path: 'health-check', component: StatusComponent, canActivate: [AuthGuard] },
-  	{ path: 'health-check', component: PanelGcpComponent, canActivate: [AuthGuard] },
   	{ path: '**', redirectTo: 'login' },
 ];		

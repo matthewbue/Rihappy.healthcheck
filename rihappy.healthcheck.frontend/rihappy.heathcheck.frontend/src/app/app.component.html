@@ -1,7 +1,7 @@
 <div class="app-container">
-	<header class="header">
+	<div *ngIf="isMenuVisible">
 		<app-menu></app-menu>
-	</header>
+	  </div>
 	<div class="content" [class.collapsed]="IsMenuCollapsed">
 		<router-outlet></router-outlet>
 	</div>

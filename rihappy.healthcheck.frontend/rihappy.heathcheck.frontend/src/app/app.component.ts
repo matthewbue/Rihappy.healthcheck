@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { StatusComponent } from "./components/panel-status/panel-status.component";
 import { PanelGcpComponent } from './components/panel-gcp/panel-gcp.component';
 import { CommonModule } from '@angular/common';
@@ -12,11 +12,19 @@ import { LoginComponent } from './login/login.component';
 	standalone: true,
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
-	imports: [RouterOutlet, CommonModule, MenuComponent, StatusComponent] 
+	imports: [RouterOutlet, CommonModule, MenuComponent] 
 })
 export class AppComponent {
 	title = 'rihappy.heathcheck.frontend';
+	isMenuVisible = true;
 	IsMenuCollapsed = false;
+
+	constructor(private router: Router) {
+		// Observa mudanças na rota e decide a visibilidade do menu
+		this.router.events.subscribe(() => {
+		  this.isMenuVisible = this.router.url !== '/login'; // Oculta o menu na página de login
+		});
+	}	
 
 	onMenuToggle(isCollapsed: boolean) {
 		this.IsMenuCollapsed = isCollapsed;

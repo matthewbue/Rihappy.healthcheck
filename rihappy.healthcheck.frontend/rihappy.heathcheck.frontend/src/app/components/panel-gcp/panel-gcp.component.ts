@@ -88,7 +88,7 @@ export class PanelGcpComponent implements OnInit, OnDestroy {
   startAutoRefresh(): void {
     this.intervalId = setInterval(() => {
       this.fetchStatus(); 
-    }, 30000); 
+    }, 1000); 
   }
 
   addOngoingIncidentsToHistory(): void {

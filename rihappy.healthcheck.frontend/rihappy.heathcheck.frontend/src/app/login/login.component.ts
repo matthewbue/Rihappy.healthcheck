@@ -23,7 +23,7 @@ export class LoginComponent {
         if (response.success && response.token) {
           localStorage.setItem('token', response.token);
           localStorage.setItem('isLoggedIn', 'true');
-          this.router.navigate(['/health-check']);
+          this.router.navigate(['/status']);
         } else {
           this.errorMessage = response.message || 'Erro no login';
         }
